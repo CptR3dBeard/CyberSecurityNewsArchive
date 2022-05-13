@@ -1,7 +1,7 @@
 ﻿
 #-----Statement of Authorship----------------------------------------#
 #
-#  This is an individual assessment item.  By submitting this
+#  This is an individual assessment item.  By submitting this ok
 #  code I agree that it represents my own work.  I am aware of
 #  the University rule that a student must not act in a manner
 #  which constitutes academic dishonesty as stated and explained
