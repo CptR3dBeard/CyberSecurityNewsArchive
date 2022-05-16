@@ -101,7 +101,7 @@ tk.geometry('400x400')
 
 # buttons
 extract_html_news_file = Button(tk,text='Extract HTML news file from archive')
-display_html_news_file = Button(tk,text='Display HTML news file')
+display_html_news_file = Button(tk,text='Display HTML news file',command=webopen('/INTERNETARCHIVE/13may'))
 archive_latest_news = Button(tk,text='Archive Latest News')
 
 #placing buttons
