@@ -42,6 +42,7 @@
 # these functions only.
 
 # Import the function for opening a web document given its URL.
+from cgitb import text
 from urllib.request import urlopen
 
 # Import the function for finding all occurrences of a pattern
@@ -86,7 +87,6 @@ from datetime import datetime
 #
 # Put your solution at the end of this file.
 #
-
 # Name of the folder containing your archived web documents.  When
 # you submit your solution you must include the web archive along with
 # this Python program. The archive must contain one week's worth of
@@ -98,6 +98,16 @@ internet_archive = 'InternetArchive'
 tk = Tk()
 tk.title("Cyber Secruity News Archive")
 tk.geometry('400x400')
+
+# buttons
+extract_html_news_file = Button(tk,text='Extract HTML news file from archive')
+display_html_news_file = Button(tk,text='Display HTML news file')
+archive_latest_news = Button(tk,text='Archive Latest News')
+
+#placing buttons
+extract_html_news_file.place(x=100,y=200)
+display_html_news_file.place(x=100,y=170)
+archive_latest_news.place(x=100,y=140)
 
 
 
