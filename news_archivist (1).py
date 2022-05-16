@@ -95,5 +95,11 @@ from datetime import datetime
 internet_archive = 'InternetArchive'
 
 
-################ PUT YOUR SOLUTION HERE #################
-pass
+tk = Tk()
+tk.title("Cyber Secruity News Archive")
+tk.geometry('400x400')
+
+
+
+tk.mainloop()
+
