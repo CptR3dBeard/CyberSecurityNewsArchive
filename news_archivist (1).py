@@ -42,7 +42,7 @@
 # these functions only.
 
 # Import the function for opening a web document given its URL.
-from cgitb import text
+from cgitb import html, text
 from urllib.request import urlopen
 
 # Import the function for finding all occurrences of a pattern
@@ -93,25 +93,81 @@ from datetime import datetime
 # downloaded HTML/XML documents. It must NOT include any other files,
 # especially image files.
 internet_archive = 'InternetArchive'
+
+# display the html file
 def display_html():
-    open_new_tab('/Users/lane/Documents/GitHub/Portfolio2ITD104/test.html')
+    webopen(f'file://' + '/Users/lane/Documents/GitHub/Portfolio2ITD104/InternetArchive/13may.html')
 
+# extract news from web archive html docs
+def extract_news():
+    """ This function intends to extract the correct news information
+    from existing news articles that have been archived and display them approriatly
+    in a HTML document."""
 
+    file_name = ''
+    heading_one = 'Extract Test'
+    paragraph_one = 'This is the paragraph bruh'
+
+    html_template = f"""<!DOCTYPE html>
+    <html>
+
+    <style>
+    h1 {{
+        text-align: center;
+    }}
+    p {{
+        text-align: center;
+    }}
+    </style>
+
+    <body>
+
+    <h1>{heading_one}</h1>
+    <p>{paragraph_one}</p>
+    <h1>test</h1>
+    <p>123</p>
+    <h1>test</h1>
+    <p>123</p>
+    <h1>test</h1>
+    <p>123</p>
+    <h1>test</h1>
+    <p>123</p>
+    <h1>test</h1>
+    <p>123</p>
+    <h1>test</h1>
+    <p>123</p>
+
+    </body>
+    </html>"""
+
+    open('testing.html',mode='w').write(html_template)
+
+    
+
+# scrape cyber security news and archive contents
+def scrape_news_and_archive():
+    """ This functions purpose is to scrape the webcontents of 
+    TheHackerNews.com and save the html document in a folder named
+    InternetArchive """
+
+    pass
+
+# defining our window parameters
 tk = Tk()
 tk.title("Cyber Secruity News Archive")
 tk.geometry('400x400')
 
-# buttons
-extract_html_news_file = Button(tk,text='Extract HTML news file from archive')
+# defining our buttons
+extract_html_news_file = Button(tk,text='Extract HTML news file from archive',command= extract_news)
 display_html_news_file = Button(tk,text='Display HTML news file',command= display_html)
 archive_latest_news = Button(tk,text='Archive Latest News')
 
-#placing buttons
+#placing our buttons on screen
 extract_html_news_file.place(x=100,y=200)
 display_html_news_file.place(x=100,y=170)
 archive_latest_news.place(x=100,y=140)
 
 
-
+# main event loop
 tk.mainloop()
 
