@@ -54,7 +54,7 @@ from re import findall, MULTILINE, DOTALL
 # system's default web browser. We have called the function
 # "webopen" so that it isn't confused with the "open" function
 # for writing/reading local text files.
-from webbrowser import open as webopen
+from webbrowser import open as webopen, open_new_tab
 
 # A module with useful functions on pathnames including:
 # normpath: function for 'normalising' a  path to a file to the path-naming
@@ -93,6 +93,8 @@ from datetime import datetime
 # downloaded HTML/XML documents. It must NOT include any other files,
 # especially image files.
 internet_archive = 'InternetArchive'
+def display_html():
+    open_new_tab('/Users/lane/Documents/GitHub/Portfolio2ITD104/test.html')
 
 
 tk = Tk()
@@ -101,7 +103,7 @@ tk.geometry('400x400')
 
 # buttons
 extract_html_news_file = Button(tk,text='Extract HTML news file from archive')
-display_html_news_file = Button(tk,text='Display HTML news file',command=webopen('13may'))
+display_html_news_file = Button(tk,text='Display HTML news file',command= display_html)
 archive_latest_news = Button(tk,text='Archive Latest News')
 
 #placing buttons
