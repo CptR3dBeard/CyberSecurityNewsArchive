@@ -8,8 +8,8 @@
 #  in QUT's Manual of Policies and Procedures, Section C/5.3
 #  "Academic Integrity" and Section E/2.1 "Student Code of Conduct".
 #
-#    Student no: PUT YOUR STUDENT NUMBER HERE
-#    Student name: PUT YOUR NAME HERE
+#    Student no: 11270233
+#    Student name: Lane Travis Nash
 #
 #  NB: Files submitted without a completed copy of this statement
 #  will not be marked.  Submitted files will be subjected to
@@ -104,7 +104,6 @@ def extract_news():
     from existing news articles that have been archived and display them approriatly
     in a HTML document."""
 
-    file_name = ''
     heading_one = 'Extract Test'
     paragraph_one = 'This is the paragraph bruh'
 
