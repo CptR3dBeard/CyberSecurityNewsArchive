@@ -78,6 +78,8 @@ from tkinter import *
 # datetime.datetime(2020, 4, 16, 11, 16, 43)
 from datetime import datetime
 
+from requests import head
+
 #
 #--------------------------------------------------------------------#
 
@@ -96,7 +98,7 @@ internet_archive = 'InternetArchive'
 
 # display the html file
 def display_html():
-    webopen(f'file://' + '/Users/lane/Documents/GitHub/Portfolio2ITD104/InternetArchive/13may.html')
+    webopen(f'file://' + '/Users/lane/Documents/GitHub/Portfolio2ITD104/InternetArchive/testing.html')
 
 # extract news from web archive html docs
 def extract_news():
@@ -104,9 +106,17 @@ def extract_news():
     from existing news articles that have been archived and display them approriatly
     in a HTML document."""
 
-    heading_one = 'Extract Test'
-    paragraph_one = 'This is the paragraph bruh'
-
+    # open specified file and search for key tags
+    with open('InternetArchive/13may.html',mode='r') as root:
+        # save html content to variable
+        html_to_text = str(root.readlines())
+        # search variable string for specific content
+        headings = findall('home-title\'>(.*?)</h2>',html_to_text)
+        picture_refs = findall('src=\'https://(.*?)>',html_to_text)
+        print(picture_refs)
+        
+    
+    # basic design of our HTML document for web archiving
     html_template = f"""<!DOCTYPE html>
     <html>
 
@@ -118,28 +128,27 @@ def extract_news():
         text-align: center;
     }}
     </style>
-
     <body>
 
-    <h1>{heading_one}</h1>
-    <p>{paragraph_one}</p>
-    <h1>test</h1>
+    <h1>{headings[0]}</h1>
+    <p> <img src = https://{picture_refs[0]}><br> 123 </p>
+    <h1>{headings[1]}</h1>
     <p>123</p>
-    <h1>test</h1>
+    <h1>{headings[2]}</h1>
     <p>123</p>
-    <h1>test</h1>
+    <h1>{headings[3]}</h1>
     <p>123</p>
-    <h1>test</h1>
+    <h1>{headings[4]}</h1>
     <p>123</p>
-    <h1>test</h1>
+    <h1>{headings[5]}</h1>
     <p>123</p>
-    <h1>test</h1>
+    <h1>{headings[6]}</h1>
     <p>123</p>
 
     </body>
     </html>"""
 
-    open('testing.html',mode='w').write(html_template)
+    open('InternetArchive/testing.html',mode='w').write(html_template)
 
     
 
@@ -148,13 +157,13 @@ def scrape_news_and_archive():
     """ This functions purpose is to scrape the webcontents of 
     TheHackerNews.com and save the html document in a folder named
     InternetArchive """
-
     pass
 
 # defining our window parameters
 tk = Tk()
 tk.title("Cyber Secruity News Archive")
 tk.geometry('400x400')
+
 
 # defining our buttons
 extract_html_news_file = Button(tk,text='Extract HTML news file from archive',command= extract_news)
