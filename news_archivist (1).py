@@ -110,10 +110,12 @@ def extract_news():
     with open('InternetArchive/13may.html',mode='r') as root:
         # save html content to variable
         html_to_text = str(root.readlines())
-        # search variable string for specific content
+        # find the heading of each article
         headings = findall('home-title\'>(.*?)</h2>',html_to_text)
-        picture_refs = findall('src=\'https://(.*?)>',html_to_text)
-        print(picture_refs)
+        # find the referenced pictures attached to each article
+        picture_refs = findall('src=\"https://thehackernews.com/new-images/img\"',html_to_text)
+        # find the synopsis of each article
+        synopsis = findall('home-desc\'>(.*?)</div>',html_to_text)
         
     
     # basic design of our HTML document for web archiving
@@ -131,19 +133,19 @@ def extract_news():
     <body>
 
     <h1>{headings[0]}</h1>
-    <p> <img src = https://{picture_refs[0]}><br> 123 </p>
+    <p> <img src =https://https://thehackernews.com/new-images/img{picture_refs[0]}><br>{synopsis[0]}</p>
     <h1>{headings[1]}</h1>
-    <p>123</p>
+    <p> <img src =https://https://thehackernews.com/new-images/img{picture_refs[1]}><br>{synopsis[1]}</p>
     <h1>{headings[2]}</h1>
-    <p>123</p>
+    <p> <br>{synopsis[2]}</p>
     <h1>{headings[3]}</h1>
-    <p>123</p>
+    <p>123<br>{synopsis[3]}</p>
     <h1>{headings[4]}</h1>
-    <p>123</p>
+    <p>123<br>{synopsis[4]}</p>
     <h1>{headings[5]}</h1>
-    <p>123</p>
+    <p>123<br>{synopsis[5]}</p>
     <h1>{headings[6]}</h1>
-    <p>123</p>
+    <p>123<br>{synopsis[6]}</p>
 
     </body>
     </html>"""
