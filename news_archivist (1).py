@@ -132,9 +132,15 @@ def extract_news():
 
     <h1>{headings[0]}</h1>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <p> <img src =https://thehackernews.com/new-images/img{picture_refs[0]}><br>{synopsis[0]}</p>
     <h1>{headings[1]}</h1>
     <p> <img src =https://thehackernews.com/new-images/img{picture_refs[1]}><br>{synopsis[1]}</p>
+=======
+    <p> <img src = https://{picture_refs[0]}><br> 123 </p>
+    <h1>{headings[1]}</h1>
+    <p>123</p>
+>>>>>>> parent of 6d2804a (HTML UPDATE)
 =======
     <p> <img src = https://{picture_refs[0]}><br> 123 </p>
     <h1>{headings[1]}</h1>
