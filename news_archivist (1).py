@@ -133,9 +133,9 @@ def extract_news():
     <body>
 
     <h1>{headings[0]}</h1>
-    <p> <img src =https://https://thehackernews.com/new-images/img{picture_refs[0]}><br>{synopsis[0]}</p>
+    <p> <img src =https://thehackernews.com/new-images/img{picture_refs[0]}><br>{synopsis[0]}</p>
     <h1>{headings[1]}</h1>
-    <p> <img src =https://https://thehackernews.com/new-images/img{picture_refs[1]}><br>{synopsis[1]}</p>
+    <p> <img src =https://thehackernews.com/new-images/img{picture_refs[1]}><br>{synopsis[1]}</p>
     <h1>{headings[2]}</h1>
     <p> <br>{synopsis[2]}</p>
     <h1>{headings[3]}</h1>
