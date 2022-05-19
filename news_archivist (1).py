@@ -113,7 +113,8 @@ option_variable = StringVar(tk)
 
 # display the html file
 def display_html():
-    webopen(f"file://' + '/Users/lane/Documents/GitHub/Portfolio2ITD104/thearchived.html")
+    webopen(f"file://' + '/Users/lane/Documents/GitHub/Portfolio2ITD104/thearchivedfile.html")
+    
 
 # extract news from web archive html docs
 def extract_news():
@@ -121,8 +122,13 @@ def extract_news():
     from existing news articles that have been archived and display them approriatly
     in a HTML document."""
 
+    # check the users file choice
+    if selection_box.curselection() == (0,):
+        file_name = '13may2022.html'
+
+
     # open specified file and search for key tags
-    with open('InternetArchive/18may2022.html' ,mode='r') as root:
+    with open(f'InternetArchive/{file_name}' ,mode='r') as root:
         # save html content to variable
         html_to_text = str(root.readlines())
         # save each article heading
@@ -175,7 +181,7 @@ def extract_news():
     </body>
     </html>"""
 
-    open(f'thearchived.html',mode='w').write(html_template)
+    open(f'thearchivedfile.html',mode='w').write(html_template)
 
     
 
@@ -189,18 +195,21 @@ def scrape_news_and_archive():
 
 
 def options_menu_data():
+    # setting global variables to be used in other functions
     global options
     global selection_box
+    # empty options list
     options = []
+    # check for html files within the InternetArchive
     for files in listdir('InternetArchive'):
         if files.endswith('.html'):
-            print(files)
+            # save html file names to options list
             options.append(files)
+            
     # creating our list box
     selection_box = Listbox(tk)
     for option in options:
         selection_box.insert(END, option)
-
 
 options_menu_data()
 
