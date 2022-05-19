@@ -43,6 +43,7 @@
 
 # Import the function for opening a web document given its URL.
 from cgitb import html, text
+from glob import glob
 from urllib.request import urlopen
 
 # Import the function for finding all occurrences of a pattern
@@ -66,7 +67,7 @@ from os.path import *
 # An operating system-specific function for getting the current
 # working directory/folder.  Use this function to create the
 # full path name to your HTML document.
-from os import getcwd
+from os import getcwd, listdir
  
 # Import the standard Tkinter GUI functions.
 from tkinter import *
@@ -77,6 +78,7 @@ from tkinter import *
 # >>> datetime.fromtimestamp(1586999803) # number of seconds since 1970
 # datetime.datetime(2020, 4, 16, 11, 16, 43)
 from datetime import datetime
+from click import command
 
 from requests import head
 
@@ -94,11 +96,24 @@ from requests import head
 # this Python program. The archive must contain one week's worth of
 # downloaded HTML/XML documents. It must NOT include any other files,
 # especially image files.
+
+# defining our window parameters
+tk = Tk()
+tk.title("Cyber Secruity News Archive")
+tk.geometry('400x400')
+img = PhotoImage(file="hackerlogo.png")
+frame = Frame(tk, width=50, height=50)
+frame.pack()
+label = Label(frame, image = img)
+label.pack()
+
+# required variables
 internet_archive = 'InternetArchive'
+option_variable = StringVar(tk)
 
 # display the html file
 def display_html():
-    webopen(f'file://' + '/Users/lane/Documents/GitHub/Portfolio2ITD104/InternetArchive/testing.html')
+    webopen(f"file://' + '/Users/lane/Documents/GitHub/Portfolio2ITD104/thearchived.html")
 
 # extract news from web archive html docs
 def extract_news():
@@ -107,12 +122,14 @@ def extract_news():
     in a HTML document."""
 
     # open specified file and search for key tags
-    with open('InternetArchive/13may.html',mode='r') as root:
+    with open('InternetArchive/18may2022.html' ,mode='r') as root:
         # save html content to variable
         html_to_text = str(root.readlines())
-        # search variable string for specific content
+        # save each article heading
         headings = findall('home-title\'>(.*?)</h2>',html_to_text)
-        picture_refs = findall('src=\'https://(.*?)>',html_to_text)
+        # save eacj article picture
+        picture_refs = findall("loading=\'lazy\' src=\'https://thehackernews.com/new-images/img/b/R29vZ2xl(.*?)\'",html_to_text)
+        # save article synposis
         synopsis = findall('home-desc\'>(.*?)</div>',html_to_text)
         
     
@@ -121,9 +138,13 @@ def extract_news():
     <html>
 
     <style>
+    body {{
+        background-image: linear-gradient(#7D7DD1,#8CF4F9);
+    }}
     h1 {{
         text-align: center;
     }}
+
     p {{
         text-align: center;
     }}
@@ -131,30 +152,30 @@ def extract_news():
     <body>
 
     <h1>{headings[0]}</h1>
-    <p> <img src =https://{picture_refs[0]}><br>{synopsis[0]}</p>
+    <p> <img src =https://thehackernews.com/new-images/img/b/R29vZ2xl{picture_refs[0]}><br>{synopsis[0]}</p>
 
     <h1>{headings[1]}</h1>
-    <p> <img src =https://{picture_refs[1]}><br>{synopsis[1]}</p>
+    <p> <img src =https://thehackernews.com/new-images/img/b/R29vZ2xl{picture_refs[1]}><br>{synopsis[1]}</p>
 
     <h1>{headings[2]}</h1>
-    <p>{synopsis[2]}</p>
+    <p><img src =https://thehackernews.com/new-images/img/b/R29vZ2xl{picture_refs[2]}><br>{synopsis[2]}</p>
 
     <h1>{headings[3]}</h1>
-    <p><br>{synopsis[3]}</p>
+    <p><img src =https://thehackernews.com/new-images/img/b/R29vZ2xl{picture_refs[3]}><br>{synopsis[3]}</p>
 
     <h1>{headings[4]}</h1>
-    <p><br>{synopsis[4]}</p>
+    <p><img src =https://thehackernews.com/new-images/img/b/R29vZ2xl{picture_refs[4]}><br>{synopsis[4]}</p>
 
     <h1>{headings[5]}</h1>
-    <p><br>{synopsis[5]}</p>
+    <p><img src =https://thehackernews.com/new-images/img/b/R29vZ2xl{picture_refs[5]}><br>{synopsis[5]}</p>
 
     <h1>{headings[6]}</h1>
-    <p><br>{synopsis[6]}</p>
+    <p><img src =https://thehackernews.com/new-images/img/b/R29vZ2xl{picture_refs[6]}><br>{synopsis[6]}</p>
 
     </body>
     </html>"""
 
-    open('InternetArchive/testing.html',mode='w').write(html_template)
+    open(f'thearchived.html',mode='w').write(html_template)
 
     
 
@@ -165,21 +186,36 @@ def scrape_news_and_archive():
     InternetArchive """
     pass
 
-# defining our window parameters
-tk = Tk()
-tk.title("Cyber Secruity News Archive")
-tk.geometry('400x400')
+
+
+def options_menu_data():
+    global options
+    global selection_box
+    options = []
+    for files in listdir('InternetArchive'):
+        if files.endswith('.html'):
+            print(files)
+            options.append(files)
+    # creating our list box
+    selection_box = Listbox(tk)
+    for option in options:
+        selection_box.insert(END, option)
+
+
+options_menu_data()
+
 
 
 # defining our buttons
 extract_html_news_file = Button(tk,text='Extract HTML news file from archive',command= extract_news)
-display_html_news_file = Button(tk,text='Display HTML news file',command= display_html)
-archive_latest_news = Button(tk,text='Archive Latest News')
+submit_button = Button(tk,text='Show me this one!',command= display_html)
+
 
 #placing our buttons on screen
-extract_html_news_file.place(x=100,y=200)
-display_html_news_file.place(x=100,y=170)
-archive_latest_news.place(x=100,y=140)
+extract_html_news_file.place(x=100,y=230)
+selection_box.place(x=20,y=20)
+submit_button.place(x=200,y=20)
+
 
 
 # main event loop
