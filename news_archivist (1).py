@@ -124,8 +124,15 @@ def extract_news():
 
     # check the users file choice
     if selection_box.curselection() == (0,):
-        file_name = '13may2022.html'
-
+        file_name = options[0]
+    elif selection_box.curselection() == (1,):
+        file_name = options[1]
+    elif selection_box.curselection == (2,):
+        file_name = options[2]
+    elif selection_box.curselection() == (3,):
+        file_name = options[3]
+    elif selection_box.curselection == (4,):
+        file_name = options[4]
 
     # open specified file and search for key tags
     with open(f'InternetArchive/{file_name}' ,mode='r') as root:
@@ -175,8 +182,6 @@ def extract_news():
     <h1>{headings[5]}</h1>
     <p><img src =https://thehackernews.com/new-images/img/b/R29vZ2xl{picture_refs[5]}><br>{synopsis[5]}</p>
 
-    <h1>{headings[6]}</h1>
-    <p><img src =https://thehackernews.com/new-images/img/b/R29vZ2xl{picture_refs[6]}><br>{synopsis[6]}</p>
 
     </body>
     </html>"""
@@ -202,10 +207,10 @@ def options_menu_data():
     options = []
     # check for html files within the InternetArchive
     for files in listdir('InternetArchive'):
-        if files.endswith('.html'):
+        if files.endswith('2022.html'):
             # save html file names to options list
             options.append(files)
-            
+    print(options)
     # creating our list box
     selection_box = Listbox(tk)
     for option in options:
