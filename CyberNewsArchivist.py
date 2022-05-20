@@ -150,8 +150,7 @@ def extract_news():
     with open(f'InternetArchive/{file_name}' ,mode='r') as root:
         # save html content as string
         html_to_text = str(root.readlines())
-        article_publish_date = findall('</i>\'(.*?) == $0',html_to_text)
-        print(article_publish_date)
+
         # save each article heading
         headings = findall('home-title\'>(.*?)</h2>', html_to_text)
         # save pop title
