@@ -148,10 +148,10 @@ def extract_news():
 
     # open specified file and search for key tags
     with open(f'InternetArchive/{file_name}' ,mode='r') as root:
-        # files publish date
-        date = findall('(.*?).html',file_name)
         # save html content as string
         html_to_text = str(root.readlines())
+        article_publish_date = findall('<i class="icon-font icon-calendar"></i>\'(.*?)\'',file_name)
+        print(article_publish_date)
         # save each article heading
         headings = findall('home-title\'>(.*?)</h2>', html_to_text)
         # save pop title
@@ -189,22 +189,22 @@ def extract_news():
     <a href='https://thehackernews.com/'><p>The Hacker News</p></a>
 
     <h1>{headings[0]}</h1>
-    <p> <img src =https://thehackernews.com/new-images/img/b/R29vZ2xl{picture_refs[0]}><br>{date}<br>{synopsis[0]}</p>
+    <p> <img src =https://thehackernews.com/new-images/img/b/R29vZ2xl{picture_refs[0]}><br>{article_publish_date}<br>{synopsis[0]}</p>
 
     <h1>{headings[1]}</h1>
-    <p> <img src =https://thehackernews.com/new-images/img/b/R29vZ2xl{picture_refs[1]}><br>{date}<br>{synopsis[1]}</p>
+    <p> <img src =https://thehackernews.com/new-images/img/b/R29vZ2xl{picture_refs[1]}><br>{article_publish_date}<br>{synopsis[1]}</p>
 
     <h1>{headings[2]}</h1>
-    <p><img src =https://thehackernews.com/new-images/img/b/R29vZ2xl{picture_refs[2]}><br>{date}<br>{synopsis[2]}</p>
+    <p><img src =https://thehackernews.com/new-images/img/b/R29vZ2xl{picture_refs[2]}><br>{article_publish_date}<br>{synopsis[2]}</p>
 
     <h1>{headings[3]}</h1>
-    <p><img src =https://thehackernews.com/new-images/img/b/R29vZ2xl{picture_refs[3]}><br>{date}<br>{synopsis[3]}</p>
+    <p><img src =https://thehackernews.com/new-images/img/b/R29vZ2xl{picture_refs[3]}><br>{article_publish_date}<br>{synopsis[3]}</p>
 
     <h1>{headings[4]}</h1>
-    <p><img src =https://thehackernews.com/new-images/img/b/R29vZ2xl{picture_refs[4]}><br>{date}<br>{synopsis[4]}</p>
+    <p><img src =https://thehackernews.com/new-images/img/b/R29vZ2xl{picture_refs[4]}><br>{article_publish_date}<br>{synopsis[4]}</p>
 
     <h1>{headings[5]}</h1>
-    <p><img src =https://thehackernews.com/new-images/img/b/R29vZ2xl{picture_refs[5]}><br>{date}<br>{synopsis[5]}</p>
+    <p><img src =https://thehackernews.com/new-images/img/b/R29vZ2xl{picture_refs[5]}><br>{article_publish_date}<br>{synopsis[5]}</p>
 
     </body>
     </html>"""
