@@ -43,6 +43,7 @@
 
 # Import the function for opening a web document given its URL.
 from cgitb import html, text
+from gettext import find
 from glob import glob
 from urllib.request import urlopen
 
@@ -96,12 +97,14 @@ from requests import head
 # this Python program. The archive must contain one week's worth of
 # downloaded HTML/XML documents. It must NOT include any other files,
 # especially image files.
+from web_doc_downloader import download
+
 
 # defining our window parameters
 tk = Tk()
 tk.title("Cyber Secruity News Archive")
 tk.geometry('400x400')
-img = PhotoImage(file="hackerlogo.png")
+img = PhotoImage(file='hackerlogo.png')
 frame = Frame(tk, width=50, height=50)
 frame.pack()
 label = Label(frame, image = img)
@@ -109,7 +112,6 @@ label.pack()
 
 # required variables
 internet_archive = 'InternetArchive'
-option_variable = StringVar(tk)
 
 # display the html file
 def display_html():
@@ -122,27 +124,29 @@ def extract_news():
     from existing news articles that have been archived and display them approriatly
     in a HTML document."""
 
+
     # check the users file choice
     if selection_box.curselection() == (0,):
         file_name = options[0]
     elif selection_box.curselection() == (1,):
         file_name = options[1]
-    elif selection_box.curselection == (2,):
+    elif selection_box.curselection() == (2,):
         file_name = options[2]
     elif selection_box.curselection() == (3,):
         file_name = options[3]
-    elif selection_box.curselection == (4,):
+    elif selection_box.curselection() == (4,):
         file_name = options[4]
+
 
     # open specified file and search for key tags
     with open(f'InternetArchive/{file_name}' ,mode='r') as root:
-        # save html content to variable
+        # save html content as string
         html_to_text = str(root.readlines())
         # save each article heading
         headings = findall('home-title\'>(.*?)</h2>',html_to_text)
-        # save eacj article picture
+        # save each article picture
         picture_refs = findall("loading=\'lazy\' src=\'https://thehackernews.com/new-images/img/b/R29vZ2xl(.*?)\'",html_to_text)
-        # save article synposis
+        # save each article synposis
         synopsis = findall('home-desc\'>(.*?)</div>',html_to_text)
         
     
@@ -152,7 +156,7 @@ def extract_news():
 
     <style>
     body {{
-        background-image: linear-gradient(#7D7DD1,#8CF4F9);
+        background-image: linear-gradient(#8CF4F9,#7D7DD1);
     }}
     h1 {{
         text-align: center;
@@ -163,6 +167,9 @@ def extract_news():
     }}
     </style>
     <body>
+    <h1> Thank you for using the Cyber Archive </h1>
+    <p> All images and articles are the intellectual property of </p>
+    <a href='https://thehackernews.com/'><p>The Hacker News</p></a>
 
     <h1>{headings[0]}</h1>
     <p> <img src =https://thehackernews.com/new-images/img/b/R29vZ2xl{picture_refs[0]}><br>{synopsis[0]}</p>
@@ -186,17 +193,15 @@ def extract_news():
     </body>
     </html>"""
 
-    open(f'thearchivedfile.html',mode='w').write(html_template)
+    open('thearchivedfile.html',mode='w').write(html_template)
 
     
 
 # scrape cyber security news and archive contents
 def scrape_news_and_archive():
-    """ This functions purpose is to scrape the webcontents of 
-    TheHackerNews.com and save the html document in a folder named
-    InternetArchive """
-    pass
-
+    download('https://thehackernews.com/')
+    print(listdir())
+    
 
 
 def options_menu_data():
@@ -205,30 +210,33 @@ def options_menu_data():
     global selection_box
     # empty options list
     options = []
+
     # check for html files within the InternetArchive
     for files in listdir('InternetArchive'):
         if files.endswith('2022.html'):
             # save html file names to options list
             options.append(files)
     print(options)
+
     # creating our list box
     selection_box = Listbox(tk)
     for option in options:
         selection_box.insert(END, option)
+    selection_box.insert(END, 'Latest')
 
 options_menu_data()
 
 
-
 # defining our buttons
-extract_html_news_file = Button(tk,text='Extract HTML news file from archive',command= extract_news)
-submit_button = Button(tk,text='Show me this one!',command= display_html)
-
+extract_html_news_file = Button(tk,text='Extract News Article From Archive',command= extract_news)
+submit_button = Button(tk,text='Display News Article',command= display_html)
+our_label = Label(tk,text='Which News Document do you wish to view?')
 
 #placing our buttons on screen
-extract_html_news_file.place(x=100,y=230)
-selection_box.place(x=20,y=20)
-submit_button.place(x=200,y=20)
+extract_html_news_file.place(x=20,y=212)
+selection_box.place(x=20,y=40)
+submit_button.place(x=20,y=240)
+our_label.place(x=20,y=18)
 
 
 

@@ -85,4 +85,3 @@ def download(url = 'http://www.wikipedia.org/',
 # A main program to call the function.  If you want to download a
 # specific web document, add its URL as the function's argument.
 #
-download('https://thehackernews.com/')
