@@ -148,6 +148,7 @@ def extract_news():
         html_to_text = str(root.readlines())
         # save each article heading
         headings = findall('home-title\'>(.*?)</h2>', html_to_text)
+        print(headings)
         # save each article picture
         picture_refs = findall("loading=\'lazy\' src=\'https://thehackernews.com/new-images/img/b/R29vZ2xl(.*?)\'",html_to_text)
         # save each article synposis
@@ -192,9 +193,6 @@ def extract_news():
 
     <h1>{headings[5]}</h1>
     <p><img src =https://thehackernews.com/new-images/img/b/R29vZ2xl{picture_refs[5]}><br>{date}<br>{synopsis[5]}</p>
-
-    <h1>{headings[6]}</h1>
-    <p><img src =https://thehackernews.com/new-images/img/b/R29Vz2XL{picture_refs[6]}><br>{date}<br>{synopsis[6]}</p>
 
     </body>
     </html>"""
