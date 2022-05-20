@@ -102,12 +102,19 @@ from web_doc_downloader import download
 
 # defining our window parameters
 tk = Tk()
+# setting gui title
 tk.title("Cyber Secruity News Archive")
+# setting gui geometry
 tk.geometry('400x400')
+# setting background image
 img = PhotoImage(file='hackerlogo.png')
+# setting our frame size
 frame = Frame(tk, width=50, height=50)
+# packing frame to GUI
 frame.pack()
+# creating our Label
 label = Label(frame, image = img)
+# packing Label to GUI
 label.pack()
 
 # required variables
@@ -123,7 +130,6 @@ def extract_news():
     """ This function intends to extract the correct news information
     from existing news articles that have been archived and display them approriatly
     in a HTML document."""
-
 
     # check the users file choice
     if selection_box.curselection() == (0,):
@@ -148,14 +154,20 @@ def extract_news():
         html_to_text = str(root.readlines())
         # save each article heading
         headings = findall('home-title\'>(.*?)</h2>', html_to_text)
-        print(headings)
+        # save pop title
+        #pop_title = findall('<div class=\'pop-title\'>(.*?)</div>',html_to_text)
+
         # save each article picture
         picture_refs = findall("loading=\'lazy\' src=\'https://thehackernews.com/new-images/img/b/R29vZ2xl(.*?)\'",html_to_text)
+
+        # save each popup picture
+        #pop_picture_refs = findall("height =\'72\' src=\'https://thehackernews.com/new-images/img/b/R29vZ2xl(.*?)\'.jpeg",html_to_text)
+        
         # save each article synposis
         synopsis = findall('home-desc\'>(.*?)</div>',html_to_text)
         
     
-    # basic design of our HTML document for web archiving
+    # basic design of our HTML document for web archive generation
     html_template = f"""<!DOCTYPE html>
     <html>
 
@@ -197,12 +209,14 @@ def extract_news():
     </body>
     </html>"""
 
+    # create the generated news document and write to it using html template
     open('thearchivedfile.html',mode='w').write(html_template)
 
     
 
 # scrape cyber security news and archive contents
 def scrape_news_and_archive():
+    # call imported web document downloader
     download('https://thehackernews.com/')
     
     
@@ -224,24 +238,34 @@ def options_menu_data():
 
     # creating our list box
     selection_box = Listbox(tk)
+    # checking file options
     for option in options:
+        # insert option into list box
         selection_box.insert(END, option)
+    # insert latest option
     selection_box.insert(END, 'Latest')
 
+
+# All Function calls
 options_menu_data()
 
 
 # defining our buttons
+# extract information from news archive
 extract_html_news_file = Button(tk,text='Extract News Article From Archive',command= extract_news)
+# submit confirmation button to finalise decision
 submit_button = Button(tk,text='Display News Article',command= display_html)
+# label to instruct user on what to do
 our_label = Label(tk,text='Which News Document do you wish to view?')
+# defining a help button
+help_me = Button(tk,text='Help me!')
 
 #placing our buttons on screen
 extract_html_news_file.place(x=20,y=212)
 selection_box.place(x=20,y=40)
 submit_button.place(x=20,y=240)
 our_label.place(x=20,y=18)
-
+help_me.place(x=150,y=280)
 
 
 # main event loop
