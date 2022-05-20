@@ -136,14 +136,18 @@ def extract_news():
         file_name = options[3]
     elif selection_box.curselection() == (4,):
         file_name = options[4]
+    elif selection_box.curselection() == (5,):
+        file_name = options[5]
 
 
     # open specified file and search for key tags
     with open(f'InternetArchive/{file_name}' ,mode='r') as root:
+        # files publish date
+        date = findall('(.*?).html',file_name)
         # save html content as string
         html_to_text = str(root.readlines())
         # save each article heading
-        headings = findall('home-title\'>(.*?)</h2>',html_to_text)
+        headings = findall('home-title\'>(.*?)</h2>', html_to_text)
         # save each article picture
         picture_refs = findall("loading=\'lazy\' src=\'https://thehackernews.com/new-images/img/b/R29vZ2xl(.*?)\'",html_to_text)
         # save each article synposis
@@ -172,23 +176,25 @@ def extract_news():
     <a href='https://thehackernews.com/'><p>The Hacker News</p></a>
 
     <h1>{headings[0]}</h1>
-    <p> <img src =https://thehackernews.com/new-images/img/b/R29vZ2xl{picture_refs[0]}><br>{synopsis[0]}</p>
+    <p> <img src =https://thehackernews.com/new-images/img/b/R29vZ2xl{picture_refs[0]}><br>{date}<br>{synopsis[0]}</p>
 
     <h1>{headings[1]}</h1>
-    <p> <img src =https://thehackernews.com/new-images/img/b/R29vZ2xl{picture_refs[1]}><br>{synopsis[1]}</p>
+    <p> <img src =https://thehackernews.com/new-images/img/b/R29vZ2xl{picture_refs[1]}><br>{date}<br>{synopsis[1]}</p>
 
     <h1>{headings[2]}</h1>
-    <p><img src =https://thehackernews.com/new-images/img/b/R29vZ2xl{picture_refs[2]}><br>{synopsis[2]}</p>
+    <p><img src =https://thehackernews.com/new-images/img/b/R29vZ2xl{picture_refs[2]}><br>{date}<br>{synopsis[2]}</p>
 
     <h1>{headings[3]}</h1>
-    <p><img src =https://thehackernews.com/new-images/img/b/R29vZ2xl{picture_refs[3]}><br>{synopsis[3]}</p>
+    <p><img src =https://thehackernews.com/new-images/img/b/R29vZ2xl{picture_refs[3]}><br>{date}<br>{synopsis[3]}</p>
 
     <h1>{headings[4]}</h1>
-    <p><img src =https://thehackernews.com/new-images/img/b/R29vZ2xl{picture_refs[4]}><br>{synopsis[4]}</p>
+    <p><img src =https://thehackernews.com/new-images/img/b/R29vZ2xl{picture_refs[4]}><br>{date}<br>{synopsis[4]}</p>
 
     <h1>{headings[5]}</h1>
-    <p><img src =https://thehackernews.com/new-images/img/b/R29vZ2xl{picture_refs[5]}><br>{synopsis[5]}</p>
+    <p><img src =https://thehackernews.com/new-images/img/b/R29vZ2xl{picture_refs[5]}><br>{date}<br>{synopsis[5]}</p>
 
+    <h1>{headings[6]}</h1>
+    <p><img src =https://thehackernews.com/new-images/img/b/R29Vz2XL{picture_refs[6]}><br>{date}<br>{synopsis[6]}</p>
 
     </body>
     </html>"""
