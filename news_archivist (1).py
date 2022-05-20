@@ -200,7 +200,7 @@ def extract_news():
 # scrape cyber security news and archive contents
 def scrape_news_and_archive():
     download('https://thehackernews.com/')
-    print(listdir())
+    
     
 
 
