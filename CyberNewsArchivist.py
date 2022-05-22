@@ -45,6 +45,7 @@
 from cgitb import html, text
 from gettext import find
 from glob import glob
+from turtle import onclick
 from urllib.request import urlopen
 
 # Import the function for finding all occurrences of a pattern
@@ -244,7 +245,18 @@ def options_menu_data():
     # insert latest option
     selection_box.insert(END, 'Latest')
 
-
+def instructons_message_box():
+    """ The purpose of this function is create an easy intelligble
+    GUI to give instructions and example to users, the purpose of this program
+    and how to use it effectively for archiving and retrieving news articles"""
+    # defining a pop-up gui interface to store instructions on the program
+    instructions_window = Toplevel(tk)
+    instructions_window.geometry('200x200')
+    instructions_Label =  Label(instructions_window,text='What do you need assistance with?')
+    purpose_button = Button(instructions_window,text='What is the purpose of this program?')
+    # using place method to position the Labels and Buttons of instructions menu
+    instructions_Label.place(x=20,y=20)
+    purpose_button.place(x=20,y=40)
 # All Function calls
 options_menu_data()
 
@@ -257,7 +269,7 @@ submit_button = Button(tk,text='Display News Article',command= display_html)
 # label to instruct user on what to do
 our_label = Label(tk,text='Which News Document do you wish to view?')
 # defining a help button
-help_me = Button(tk,text='Help me!')
+help_me = Button(tk,text='Help me!',command=instructons_message_box)
 
 #placing our buttons on screen
 extract_html_news_file.place(x=20,y=212)
