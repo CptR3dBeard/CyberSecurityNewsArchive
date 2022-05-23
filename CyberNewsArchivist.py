@@ -43,6 +43,7 @@
 
 # Import the function for opening a web document given its URL.
 from cgitb import html, text
+from email import message
 from gettext import find
 from glob import glob
 from turtle import onclick
@@ -99,7 +100,7 @@ from requests import head
 # downloaded HTML/XML documents. It must NOT include any other files,
 # especially image files.
 from web_doc_downloader import download
-
+from tkinter import messagebox
 
 # defining our window parameters
 tk = Tk()
@@ -131,20 +132,11 @@ def extract_news():
     """ This function intends to extract the correct news information
     from existing news articles that have been archived and display them approriatly
     in a HTML document."""
-
+    
+    # process selection as an integer not a tuple
+    users_selection = int(selection_box.curselection()[0])
     # check the users file choice
-    if selection_box.curselection() == (0,):
-        file_name = options[0]
-    elif selection_box.curselection() == (1,):
-        file_name = options[1]
-    elif selection_box.curselection() == (2,):
-        file_name = options[2]
-    elif selection_box.curselection() == (3,):
-        file_name = options[3]
-    elif selection_box.curselection() == (4,):
-        file_name = options[4]
-    elif selection_box.curselection() == (5,):
-        file_name = options[5]
+    file_name = options[users_selection]
 
 
     # open specified file and search for key tags
@@ -245,18 +237,36 @@ def options_menu_data():
     # insert latest option
     selection_box.insert(END, 'Latest')
 
-def instructons_message_box():
+# !!!Beginning of Instruction menu functions!!!
+def how_to_use():
+    messagebox.showinfo(instructions_window,message='1. Firstly you must select a news article from our menu\n\
+    2. You must hit extract from news archive button which is located below our file selection box\n\
+    3. Lastly you then hit Display news article and you will be directed to an offline generated document containing the news.')
+
+def purpose_message_box():
+    messagebox.showinfo(instructions_window,message='The purpose of this program is to to safely and legally archive news articles\
+    that have been posted online. In addition, allowing users to retrieve newly generated webpages from specific dates and view the events\
+    of the day')
+
+def instructons_gui_menu():
     """ The purpose of this function is create an easy intelligble
     GUI to give instructions and example to users, the purpose of this program
     and how to use it effectively for archiving and retrieving news articles"""
+    global instructions_window
     # defining a pop-up gui interface to store instructions on the program
     instructions_window = Toplevel(tk)
     instructions_window.geometry('200x200')
     instructions_Label =  Label(instructions_window,text='What do you need assistance with?')
-    purpose_button = Button(instructions_window,text='What is the purpose of this program?')
+    purpose_button = Button(instructions_window,text='What is the purpose of this program?',command=purpose_message_box)
+    how_to_use_button = Button(instructions_window,text='How do i use this program?',command=how_to_use)
     # using place method to position the Labels and Buttons of instructions menu
     instructions_Label.place(x=20,y=20)
     purpose_button.place(x=20,y=40)
+    how_to_use_button.place(x=20,y=80)
+
+
+# !!!Ending of Instruction Menu Functions!!!
+
 # All Function calls
 options_menu_data()
 
@@ -269,7 +279,7 @@ submit_button = Button(tk,text='Display News Article',command= display_html)
 # label to instruct user on what to do
 our_label = Label(tk,text='Which News Document do you wish to view?')
 # defining a help button
-help_me = Button(tk,text='Help me!',command=instructons_message_box)
+help_me = Button(tk,text='Help me!',command=instructons_gui_menu)
 
 #placing our buttons on screen
 extract_html_news_file.place(x=20,y=212)
