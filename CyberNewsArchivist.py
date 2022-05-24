@@ -43,7 +43,9 @@
 
 # Import the function for opening a web document given its URL.
 from cgitb import html, text
+from dataclasses import replace
 from email import message
+from fileinput import filename
 from gettext import find
 from glob import glob
 from turtle import onclick
@@ -141,9 +143,9 @@ def extract_news():
 
     # open specified file and search for key tags
     with open(f'InternetArchive/{file_name}' ,mode='r') as root:
+        publish_and_download_date = findall('(.*?).html',file_name)
         # save html content as string
         html_to_text = str(root.readlines())
-
         # save each article heading
         headings = findall('home-title\'>(.*?)</h2>', html_to_text)
         # save pop title
@@ -179,6 +181,7 @@ def extract_news():
     <h1> Thank you for using the Cyber Archive </h1>
     <p> All images and articles are the intellectual property of </p>
     <a href='https://thehackernews.com/'><p>The Hacker News</p></a>
+    <p> These articles were published and archived on the {publish_and_download_date[0]}</p>
 
     <h1>{headings[0]}</h1>
     <p> <img src =https://thehackernews.com/new-images/img/b/R29vZ2xl{picture_refs[0]}><br><br>{synopsis[0]}</p>
