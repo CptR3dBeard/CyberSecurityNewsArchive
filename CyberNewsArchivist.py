@@ -72,7 +72,7 @@ from os.path import *
 # An operating system-specific function for getting the current
 # working directory/folder.  Use this function to create the
 # full path name to your HTML document.
-from os import getcwd, listdir
+from os import getcwd, listdir, rename
  
 # Import the standard Tkinter GUI functions.
 from tkinter import *
@@ -101,7 +101,8 @@ from click import option
 # especially image files.
 from web_doc_downloader import download
 from tkinter import messagebox
-
+# varibale containing current time
+dt = datetime.today()
 # defining our window parameters
 tk = Tk()
 # setting gui title
@@ -220,7 +221,13 @@ def scrape_news_and_archive():
     """This function is to scrape the latest news articles and save them
     to the InternetArchiveFolder """
     # call imported web document downloader
-    download('https://thehackernews.com/')
+    download(f'''https://thehackernews.com/','{datetime.day + datetime.month +datetime.year}''')
+    for new_download in listdir():
+        if new_download.endswith():
+            # rename file to date
+            rename('download.html')
+            # move file to internet archive
+            
     
     
 
@@ -304,7 +311,6 @@ selection_box.place(x=20,y=40)
 submit_button.place(x=20,y=240)
 our_label.place(x=20,y=18)
 help_me.place(x=150,y=280)
-
 
 # main event loop
 tk.mainloop()
