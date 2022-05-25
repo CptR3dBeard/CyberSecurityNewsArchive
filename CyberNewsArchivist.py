@@ -83,6 +83,8 @@ from tkinter import *
 # >>> datetime.fromtimestamp(1586999803) # number of seconds since 1970
 # datetime.datetime(2020, 4, 16, 11, 16, 43)
 from datetime import datetime
+
+from click import option
 #
 #--------------------------------------------------------------------#
 
@@ -137,8 +139,7 @@ def extract_news():
     #global publish_and_download_date,headings,picture_refs,synopsis
     # process selection as an integer not a tuple
     users_selection = int(selection_box.curselection()[0])
-    if users_selection == 6:
-        scrape_news_and_archive()
+        
     # check the users file choice
     file_name = options[users_selection]
 
@@ -251,7 +252,7 @@ def options_menu_data():
     selection_box.insert(END, 'Latest')
 
 
-# !!!Beginning of Instruction menu functions!!!
+# !!!START of Instruction menu functions!!!
 def how_to_use():
     messagebox.showinfo(instructions_window,message='1. Firstly you must select a news article from our menu\n\
     2. You must hit extract from news archive button which is located below our file selection box\n\
@@ -281,7 +282,7 @@ def instructons_gui_menu():
     how_to_use_button.place(x=20,y=80)
 
 
-# !!!Ending of Instruction Menu Functions!!!
+# !!!End of Instruction Menu Functions!!!
 
 # All Function calls
 options_menu_data()
