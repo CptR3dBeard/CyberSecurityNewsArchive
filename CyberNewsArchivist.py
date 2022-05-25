@@ -83,10 +83,6 @@ from tkinter import *
 # >>> datetime.fromtimestamp(1586999803) # number of seconds since 1970
 # datetime.datetime(2020, 4, 16, 11, 16, 43)
 from datetime import datetime
-from click import command
-
-from requests import head
-
 #
 #--------------------------------------------------------------------#
 
@@ -134,33 +130,39 @@ def extract_news():
     """ This function intends to extract the correct news information
     from existing news articles that have been archived and display them approriatly
     in a HTML document."""
-    
+    # making variables global
+    #global publish_and_download_date,headings,picture_refs,synopsis
     # process selection as an integer not a tuple
     users_selection = int(selection_box.curselection()[0])
+    if users_selection == 6:
+        scrape_news_and_archive()
     # check the users file choice
     file_name = options[users_selection]
 
 
     # open specified file and search for key tags
     with open(f'InternetArchive/{file_name}' ,mode='r') as root:
+        # saving the archive and publish dates of the file
         publish_and_download_date = findall('(.*?).html',file_name)
+
         # save html content as string
         html_to_text = str(root.readlines())
+
         # save each article heading
         headings = findall('home-title\'>(.*?)</h2>', html_to_text)
-        # save pop title
-        #pop_title = findall('<div class=\'pop-title\'>(.*?)</div>',html_to_text)
 
         # save each article picture
         picture_refs = findall("loading=\'lazy\' src=\'https://thehackernews.com/new-images/img/b/R29vZ2xl(.*?)\'",html_to_text)
-
-        # save each popup picture
-        #pop_picture_refs = findall("height =\'72\' src=\'https://thehackernews.com/new-images/img/b/R29vZ2xl(.*?)\'.jpeg",html_to_text)
         
         # save each article synposis
         synopsis = findall('home-desc\'>(.*?)</div>',html_to_text)
-        
-    
+        create_archived_html(publish_and_download_date,headings,picture_refs,synopsis)
+
+ 
+def create_archived_html(date,titles,pictures,descirptions):
+    """This function's purpose to to design out webpage to contain the news of
+    the file used from the InternetArchive folder. This is be presented by using Headers
+    Pictures and the synposis of each news subject."""
     # basic design of our HTML document for web archive generation
     html_template = f"""<!DOCTYPE html>
     <html>
@@ -181,25 +183,25 @@ def extract_news():
     <h1> Thank you for using the Cyber Archive </h1>
     <p> All images and articles are the intellectual property of </p>
     <a href='https://thehackernews.com/'><p>The Hacker News</p></a>
-    <p> These articles were published and archived on the {publish_and_download_date[0]}</p>
+    <p> These articles were published and archived on the {date[0]}</p>
 
-    <h1>{headings[0]}</h1>
-    <p> <img src =https://thehackernews.com/new-images/img/b/R29vZ2xl{picture_refs[0]}><br><br>{synopsis[0]}</p>
+    <h1>{titles[0]}</h1>
+    <p> <img src =https://thehackernews.com/new-images/img/b/R29vZ2xl{pictures[0]}><br><br>{descirptions[0]}....</p>
 
-    <h1>{headings[1]}</h1>
-    <p> <img src =https://thehackernews.com/new-images/img/b/R29vZ2xl{picture_refs[1]}><br><br>{synopsis[1]}</p>
+    <h1>{titles[1]}</h1>
+    <p> <img src =https://thehackernews.com/new-images/img/b/R29vZ2xl{pictures[1]}><br><br>{descirptions[1]}....</p>
 
-    <h1>{headings[2]}</h1>
-    <p><img src =https://thehackernews.com/new-images/img/b/R29vZ2xl{picture_refs[2]}><br><br>{synopsis[2]}</p>
+    <h1>{titles[2]}</h1>
+    <p><img src =https://thehackernews.com/new-images/img/b/R29vZ2xl{pictures[2]}><br><br>{descirptions[2]}....</p>
 
-    <h1>{headings[3]}</h1>
-    <p><img src =https://thehackernews.com/new-images/img/b/R29vZ2xl{picture_refs[3]}><br><br>{synopsis[3]}</p>
+    <h1>{titles[3]}</h1>
+    <p><img src =https://thehackernews.com/new-images/img/b/R29vZ2xl{pictures[3]}><br><br>{descirptions[3]}....</p>
 
-    <h1>{headings[4]}</h1>
-    <p><img src =https://thehackernews.com/new-images/img/b/R29vZ2xl{picture_refs[4]}><br><br>{synopsis[4]}</p>
+    <h1>{titles[4]}</h1>
+    <p><img src =https://thehackernews.com/new-images/img/b/R29vZ2xl{pictures[4]}><br><br>{descirptions[4]}....</p>
 
-    <h1>{headings[5]}</h1>
-    <p><img src =https://thehackernews.com/new-images/img/b/R29vZ2xl{picture_refs[5]}><br><br>{synopsis[5]}</p>
+    <h1>{titles[5]}</h1>
+    <p><img src =https://thehackernews.com/new-images/img/b/R29vZ2xl{pictures[5]}><br><br>{descirptions[5]}....</p>
 
     </body>
     </html>"""
@@ -240,6 +242,7 @@ def options_menu_data():
     # insert latest option
     selection_box.insert(END, 'Latest')
 
+
 # !!!Beginning of Instruction menu functions!!!
 def how_to_use():
     messagebox.showinfo(instructions_window,message='1. Firstly you must select a news article from our menu\n\
@@ -256,9 +259,11 @@ def instructons_gui_menu():
     GUI to give instructions and example to users, the purpose of this program
     and how to use it effectively for archiving and retrieving news articles"""
     global instructions_window
-    # defining a pop-up gui interface to store instructions on the program
+    # window varibale to make sure the help gui is infront of base gui
     instructions_window = Toplevel(tk)
+    # setting the window geometry
     instructions_window.geometry('200x200')
+    # creating our label and buttons
     instructions_Label =  Label(instructions_window,text='What do you need assistance with?')
     purpose_button = Button(instructions_window,text='What is the purpose of this program?',command=purpose_message_box)
     how_to_use_button = Button(instructions_window,text='How do i use this program?',command=how_to_use)
