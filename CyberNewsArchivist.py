@@ -122,6 +122,9 @@ internet_archive = 'InternetArchive'
 
 # display the html file
 def display_html():
+    """This function will open the HTML document after
+    news has been written extracted and written to it"""
+    # open webpage news document
     webopen(f"file://' + '/Users/lane/Documents/GitHub/Portfolio2ITD104/thearchivedfile.html")
     
 
@@ -213,6 +216,8 @@ def create_archived_html(date,titles,pictures,descirptions):
 
 # scrape cyber security news and archive contents
 def scrape_news_and_archive():
+    """This function is to scrape the latest news articles and save them
+    to the InternetArchiveFolder """
     # call imported web document downloader
     download('https://thehackernews.com/')
     
@@ -220,6 +225,9 @@ def scrape_news_and_archive():
 
 
 def options_menu_data():
+    """This function records and displays the data
+    within a tkinter listbox, for the user to select the
+    desired document."""
     # setting global variables to be used in other functions
     global options
     global selection_box
