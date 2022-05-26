@@ -164,7 +164,7 @@ def extract_news():
         create_archived_html(publish_and_download_date,headings,picture_refs,synopsis)
 
  
-def create_archived_html(date,titles,pictures,descirptions):
+def create_archived_html(date,titles,pictures,descriptions):
     """This function's purpose to to design out webpage to contain the news of
     the file used from the InternetArchive folder. This is be presented by using Headers
     Pictures and the synposis of each news subject."""
@@ -191,22 +191,22 @@ def create_archived_html(date,titles,pictures,descirptions):
     <p> These articles were published and archived on the {date[0]}</p>
 
     <h1>{titles[0]}</h1>
-    <p> <img src =https://thehackernews.com/new-images/img/b/R29vZ2xl{pictures[0]}><br><br>{descirptions[0]}....</p>
+    <p> <img src =https://thehackernews.com/new-images/img/b/R29vZ2xl{pictures[0]}><br><br>{descriptions[0]}....</p>
 
     <h1>{titles[1]}</h1>
-    <p> <img src =https://thehackernews.com/new-images/img/b/R29vZ2xl{pictures[1]}><br><br>{descirptions[1]}....</p>
+    <p> <img src =https://thehackernews.com/new-images/img/b/R29vZ2xl{pictures[1]}><br><br>{descriptions[1]}....</p>
 
     <h1>{titles[2]}</h1>
-    <p><img src =https://thehackernews.com/new-images/img/b/R29vZ2xl{pictures[2]}><br><br>{descirptions[2]}....</p>
+    <p><img src =https://thehackernews.com/new-images/img/b/R29vZ2xl{pictures[2]}><br><br>{descriptions[2]}....</p>
 
     <h1>{titles[3]}</h1>
-    <p><img src =https://thehackernews.com/new-images/img/b/R29vZ2xl{pictures[3]}><br><br>{descirptions[3]}....</p>
+    <p><img src =https://thehackernews.com/new-images/img/b/R29vZ2xl{pictures[3]}><br><br>{descriptions[3]}....</p>
 
     <h1>{titles[4]}</h1>
-    <p><img src =https://thehackernews.com/new-images/img/b/R29vZ2xl{pictures[4]}><br><br>{descirptions[4]}....</p>
+    <p><img src =https://thehackernews.com/new-images/img/b/R29vZ2xl{pictures[4]}><br><br>{descriptions[4]}....</p>
 
     <h1>{titles[5]}</h1>
-    <p><img src =https://thehackernews.com/new-images/img/b/R29vZ2xl{pictures[5]}><br><br>{descirptions[5]}....</p>
+    <p><img src =https://thehackernews.com/new-images/img/b/R29vZ2xl{pictures[5]}><br><br>{descriptions[5]}....</p>
 
     </body>
     </html>"""
@@ -221,11 +221,11 @@ def scrape_news_and_archive():
     """This function is to scrape the latest news articles and save them
     to the InternetArchiveFolder """
     # call imported web document downloader
-    download(f'''https://thehackernews.com/','{datetime.day + datetime.month +datetime.year}''')
+    download('https://thehackernews.com/','latest_archive','html')
     for new_download in listdir():
-        if new_download.endswith():
+        if new_download == 'latest_archive.html':
             # rename file to date
-            rename('download.html')
+            print('yes')
             # move file to internet archive
             
     
@@ -241,7 +241,6 @@ def options_menu_data():
     global selection_box
     # empty options list
     options = []
-
     # check for html files within the InternetArchive
     for files in listdir('InternetArchive'):
         if files.endswith('2022.html'):
@@ -255,9 +254,6 @@ def options_menu_data():
     for option in options:
         # insert option into list box
         selection_box.insert(END, option)
-    # insert latest option
-    selection_box.insert(END, 'Latest')
-
 
 # !!!START of Instruction menu functions!!!
 def how_to_use():
@@ -278,7 +274,7 @@ def instructons_gui_menu():
     # window varibale to make sure the help gui is infront of base gui
     instructions_window = Toplevel(tk)
     # setting the window geometry
-    instructions_window.geometry('200x200')
+    instructions_window.geometry('300x300')
     # creating our label and buttons
     instructions_Label =  Label(instructions_window,text='What do you need assistance with?')
     purpose_button = Button(instructions_window,text='What is the purpose of this program?',command=purpose_message_box)
@@ -290,28 +286,32 @@ def instructons_gui_menu():
 
 
 # !!!End of Instruction Menu Functions!!!
+def main():
+    # All Function calls
+    options_menu_data()
 
-# All Function calls
-options_menu_data()
 
+    # defining our buttons
+    # extract information from news archive
+    extract_html_news_file = Button(tk,text='Extract News Article From Archive',command= extract_news)
+    # submit confirmation button to finalise decision
+    submit_button = Button(tk,text='Display News Article',command= display_html)
+    # label to instruct user on what to do
+    our_label = Label(tk,text='Which News Document do you wish to view?')
+    # button for archiving the latest news
+    archive_latest = Button(tk,text='Archive Latest News', command= scrape_news_and_archive)
+    # defining a help button
+    help_me = Button(tk,text='Help me!',command= instructons_gui_menu)
 
-# defining our buttons
-# extract information from news archive
-extract_html_news_file = Button(tk,text='Extract News Article From Archive',command= extract_news)
-# submit confirmation button to finalise decision
-submit_button = Button(tk,text='Display News Article',command= display_html)
-# label to instruct user on what to do
-our_label = Label(tk,text='Which News Document do you wish to view?')
-# defining a help button
-help_me = Button(tk,text='Help me!',command=instructons_gui_menu)
+    #placing our buttons on screen
+    extract_html_news_file.place(x=20,y=212)
+    selection_box.place(x=20,y=40)
+    submit_button.place(x=20,y=240)
+    our_label.place(x=20,y=18)
+    help_me.place(x=178,y=240)
+    archive_latest.place(x=20,y=268)
 
-#placing our buttons on screen
-extract_html_news_file.place(x=20,y=212)
-selection_box.place(x=20,y=40)
-submit_button.place(x=20,y=240)
-our_label.place(x=20,y=18)
-help_me.place(x=150,y=280)
+    # main event loop
+    tk.mainloop()
 
-# main event loop
-tk.mainloop()
-
+main()
