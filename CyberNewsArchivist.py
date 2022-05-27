@@ -173,7 +173,7 @@ def create_archived_html(date,titles,pictures,descriptions):
     html_template2 = f"""
      <!DOCTYPE html>
  <html>
- 
+ <title> 📰 Articles 📰</title>
  <style>
 body {{
         background-image: linear-gradient(#8CF4F9,#7D7DD1);
@@ -241,7 +241,6 @@ h1 {{
   
     <!-- Left Side Links-->
     <a href="CyberSecurityEventsPage.html" class='active'>Cyber Security Events</a>
-    <a href="contact_page.html">Contact</a>
   
     <!-- Right Side Links -->
     <div class="topnav-right">
@@ -251,6 +250,7 @@ h1 {{
 </div>
 <div class ="mainbody">
     <body>
+    <p> These news articles were published and archived on the {str(date)} </p> 
     <h1>1. {titles[0]}</h1>
     <p> <img style="border:10px solid black;" src =https://thehackernews.com/new-images/img/b/R29vZ2xl{pictures[0]}><br><br>{descriptions[0]}....</p>
 
