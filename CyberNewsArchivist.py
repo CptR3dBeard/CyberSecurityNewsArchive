@@ -44,6 +44,7 @@
 # Import the function for opening a web document given its URL.
 from cgitb import html, text
 from dataclasses import replace
+from distutils.file_util import move_file
 from email import message
 from fileinput import filename
 from gettext import find
@@ -85,6 +86,7 @@ from tkinter import *
 from datetime import datetime
 
 from click import option
+from docutils import DataError
 #
 #--------------------------------------------------------------------#
 
@@ -122,6 +124,7 @@ label.pack()
 
 # required variables
 internet_archive = 'InternetArchive'
+
 
 # display the html file
 def display_html():
@@ -225,11 +228,13 @@ def scrape_news_and_archive():
     for new_download in listdir():
         if new_download == 'latest_archive.html':
             # rename file to date
-            print('yes')
+            date = dt.date()
+            rename(new_download,f'{date}.html')
             # move file to internet archive
-            
-    
-    
+            move_file(src= f'{date}.html' , dst= 'InternetArchive')
+    if f'{date}.html' in listdir('/InternetArchive'):
+    # add to list box
+    selection_box.insert(END, f'{date}.html')
 
 
 def options_menu_data():
@@ -243,7 +248,7 @@ def options_menu_data():
     options = []
     # check for html files within the InternetArchive
     for files in listdir('InternetArchive'):
-        if files.endswith('2022.html'):
+        if files.endswith('.html'):
             # save html file names to options list
             options.append(files)
     print(options)
@@ -313,5 +318,13 @@ def main():
 
     # main event loop
     tk.mainloop()
+
+#refresh interface
+def refresh_gui():
+    """Purpose of this function is to reload the GUI interface
+    where neccesary, example would be to update the InternetArchive
+    and list box."""
+    tk.destroy()
+    main()
 
 main()
