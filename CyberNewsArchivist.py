@@ -232,9 +232,13 @@ def scrape_news_and_archive():
             rename(new_download,f'{date}.html')
             # move file to internet archive
             move_file(src= f'{date}.html' , dst= 'InternetArchive')
-    if f'{date}.html' in listdir('/InternetArchive'):
-    # add to list box
-    selection_box.insert(END, f'{date}.html')
+            
+    # check to see if html document exists in directory       
+    if f'{date}.html' not in listdir('InternetArchive'):
+         # add to list box
+        selection_box.insert(END, f'{date}.html')
+    else:
+        print('File already exists')
 
 
 def options_menu_data():
