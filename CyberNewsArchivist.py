@@ -141,17 +141,17 @@ def extract_news():
     in a HTML document."""
     # making variables global
     #global publish_and_download_date,headings,picture_refs,synopsis
+
     # process selection as an integer not a tuple
-    users_selection = int(selection_box.curselection()[0])
-        
+    users_selection = int(selection_box.curselection()[0]) 
     # check the users file choice
     file_name = options[users_selection]
 
 
     # open specified file and search for key tags
-    with open(f'InternetArchive/{file_name}' ,mode='r') as root:
+    with open(f'InternetArchive/{file_name}' , mode= 'r') as root:
         # saving the archive and publish dates of the file
-        publish_and_download_date = findall('(.*?).html',file_name)
+        publish_and_download_date = findall('(.*?).html', file_name)
 
         # save html content as string
         html_to_text = str(root.readlines())
@@ -194,22 +194,22 @@ def create_archived_html(date,titles,pictures,descriptions):
     <p> These articles were published and archived on the {date[0]}</p>
 
     <h1>{titles[0]}</h1>
-    <p> <img src =https://thehackernews.com/new-images/img/b/R29vZ2xl{pictures[0]}><br><br>{descriptions[0]}....</p>
+    <p> <img style="border:10px solid black;" src =https://thehackernews.com/new-images/img/b/R29vZ2xl{pictures[0]}><br><br>{descriptions[0]}....</p>
 
     <h1>{titles[1]}</h1>
-    <p> <img src =https://thehackernews.com/new-images/img/b/R29vZ2xl{pictures[1]}><br><br>{descriptions[1]}....</p>
+    <p> <img style="border:10px solid black;" src =https://thehackernews.com/new-images/img/b/R29vZ2xl{pictures[1]}><br><br>{descriptions[1]}....</p>
 
     <h1>{titles[2]}</h1>
-    <p><img src =https://thehackernews.com/new-images/img/b/R29vZ2xl{pictures[2]}><br><br>{descriptions[2]}....</p>
+    <p> <img style="border:10px solid black;" src =https://thehackernews.com/new-images/img/b/R29vZ2xl{pictures[2]}><br><br>{descriptions[2]}....</p>
 
     <h1>{titles[3]}</h1>
-    <p><img src =https://thehackernews.com/new-images/img/b/R29vZ2xl{pictures[3]}><br><br>{descriptions[3]}....</p>
+    <p> <img style="border:10px solid black;" src =https://thehackernews.com/new-images/img/b/R29vZ2xl{pictures[3]}><br><br>{descriptions[3]}....</p>
 
     <h1>{titles[4]}</h1>
-    <p><img src =https://thehackernews.com/new-images/img/b/R29vZ2xl{pictures[4]}><br><br>{descriptions[4]}....</p>
+    <p> <img style="border:10px solid black;" src =https://thehackernews.com/new-images/img/b/R29vZ2xl{pictures[4]}><br><br>{descriptions[4]}....</p>
 
     <h1>{titles[5]}</h1>
-    <p><img src =https://thehackernews.com/new-images/img/b/R29vZ2xl{pictures[5]}><br><br>{descriptions[5]}....</p>
+    <p> <img style="border:10px solid black;" src =https://thehackernews.com/new-images/img/b/R29vZ2xl{pictures[5]}><br><br>{descriptions[5]}....</p>
 
     </body>
     </html>"""
@@ -223,22 +223,18 @@ def create_archived_html(date,titles,pictures,descriptions):
 def scrape_news_and_archive():
     """This function is to scrape the latest news articles and save them
     to the InternetArchiveFolder """
+    date = dt.date()
     # call imported web document downloader
-    download('https://thehackernews.com/','latest_archive','html')
-    for new_download in listdir():
-        if new_download == 'latest_archive.html':
-            # rename file to date
-            date = dt.date()
-            rename(new_download,f'{date}.html')
-            # move file to internet archive
-            move_file(src= f'{date}.html' , dst= 'InternetArchive')
-            
-    # check to see if html document exists in directory       
+    download('https://thehackernews.com/',f'{date}','html')
+    # check internet archive if file exists
     if f'{date}.html' not in listdir('InternetArchive'):
-         # add to list box
-        selection_box.insert(END, f'{date}.html')
+        # move file to internet archive
+        move_file(src= f'{date}.html' , dst= 'InternetArchive')
+        # append new file to list box options
+        options.append(f'{date}.html')
+        # reload options menu data    
     else:
-        print('File already exists')
+         print('---- File Already Exists ----')
 
 
 def options_menu_data():
