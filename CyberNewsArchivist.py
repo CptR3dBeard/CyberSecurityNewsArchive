@@ -129,7 +129,7 @@ def display_html():
     """This function will open the HTML document after
     news has been written extracted and written to it"""
     # open webpage news document
-    webopen(f"file://' + '/Users/lane/Documents/GitHub/Portfolio2ITD104/thearchivedfile.html")
+    webopen(f"file://' + '/Users/lane/Documents/GitHub/Portfolio2ITD104/Webarchivepage/main_page.html")
     
 
 # extract news from web archive html docs
@@ -170,27 +170,87 @@ def create_archived_html(date,titles,pictures,descriptions):
     the file used from the InternetArchive folder. This is be presented by using Headers
     Pictures and the synposis of each news subject."""
     # basic design of our HTML document for web archive generation
-    html_template = f"""<!DOCTYPE html>
-    <html>
-
-    <style>
-    body {{
+    html_template2 = f"""
+     <!DOCTYPE html>
+ <html>
+ 
+ <style>
+body {{
         background-image: linear-gradient(#8CF4F9,#7D7DD1);
-    }}
-    h1 {{
-        text-align: center;
-    }}
+}}
+p {{
+    text-align: center;
+}}
+h1 {{
+    text-align: center;
+    margin-top: 100px;
+}}
+/* Add a black background color to the top navigation */
+.topnav {{
+  position: relative;
+  background-color: rgb(2, 19, 117);
+  overflow: hidden;
+}}
 
-    p {{
-        text-align: center;
-    }}
-    </style>
+/* Style the links inside the navigation bar */
+.topnav a {{
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}}
+
+/* Change the color of links on hover */
+.topnav a:hover {{
+  background-color: #ddd;
+  color: black;
+}}
+
+/* Add a color to the active/current link */
+.topnav a.active {{
+  background-color: #010708;
+  color: white;
+}}
+
+/* Centered section inside the top navigation */
+.topnav-centered a {{
+  float: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}}
+
+/* Right-aligned section inside the top navigation */
+.topnav-right {{
+  float: right;
+}}
+.body {{
+        background-image: linear-gradient(#8CF4F9,#7D7DD1);
+}}
+ </style>
+<!-- Top navigation -->
+<div class="topnav">
+
+    <!-- Center of screen link -->
+    <div class="topnav-centered">
+      <a href="main_page.html">Home</a>
+    </div>
+  
+    <!-- Left Side Links-->
+    <a href="CyberSecurityEventsPage.html" class='active'>Cyber Security Events</a>
+    <a href="contact_page.html">Contact</a>
+  
+    <!-- Right Side Links -->
+    <div class="topnav-right">
+      <a href="about_page.html">About</a>
+      <a href="#"></a>
+    </div>
+</div>
+<div class ="mainbody">
     <body>
-    <h1> Thank you for using the Cyber Archive </h1>
-    <p> All images and articles are the intellectual property of </p>
-    <a href='https://thehackernews.com/'><p>The Hacker News</p></a>
-    <p> These articles were published and archived on the {date[0]}</p>
-
     <h1>1. {titles[0]}</h1>
     <p> <img style="border:10px solid black;" src =https://thehackernews.com/new-images/img/b/R29vZ2xl{pictures[0]}><br><br>{descriptions[0]}....</p>
 
@@ -210,10 +270,12 @@ def create_archived_html(date,titles,pictures,descriptions):
     <p> <img style="border:10px solid black;" src =https://thehackernews.com/new-images/img/b/R29vZ2xl{pictures[5]}><br><br>{descriptions[5]}....</p>
 
     </body>
-    </html>"""
+</div>
 
+    """
+   
     # create the generated news document and write to it using html template
-    open('thearchivedfile.html',mode='w').write(html_template)
+    open('Webarchivepage/CyberSecurityEventsPage.html',mode='w').write(html_template2)
 
     
 

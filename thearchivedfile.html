@@ -1,41 +1,103 @@
-<!DOCTYPE html>
-    <html>
 
-    <style>
-    body {
+     <!DOCTYPE html>
+ <html>
+ 
+ <style>
+body {
         background-image: linear-gradient(#8CF4F9,#7D7DD1);
-    }
-    h1 {
-        text-align: center;
-    }
+}
+p {
+    text-align: center;
+}
+h1 {
+    text-align: center;
+    margin-top: 100px;
+}
+/* Add a black background color to the top navigation */
+.topnav {
+  position: relative;
+  background-color: rgb(2, 19, 117);
+  overflow: hidden;
+}
 
-    p {
-        text-align: center;
-    }
-    </style>
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: #010708;
+  color: white;
+}
+
+/* Centered section inside the top navigation */
+.topnav-centered a {
+  float: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Right-aligned section inside the top navigation */
+.topnav-right {
+  float: right;
+}
+.body {
+        background-image: linear-gradient(#8CF4F9,#7D7DD1);
+}
+ </style>
+<!-- Top navigation -->
+<div class="topnav">
+
+    <!-- Center of screen link -->
+    <div class="topnav-centered">
+      <a href="#home" class="active">Home</a>
+    </div>
+  
+    <!-- Left Side Links-->
+    <a href="www.google.com">Cyber Security Events</a>
+    <a href="#contact">Contact</a>
+  
+    <!-- Right Side Links -->
+    <div class="topnav-right">
+      <a href="#about">About</a>
+      <a href="#"></a>
+    </div>
+</div>
+<div class ="mainbody">
     <body>
-    <h1> Thank you for using the Cyber Archive </h1>
-    <p> All images and articles are the intellectual property of </p>
-    <a href='https://thehackernews.com/'><p>The Hacker News</p></a>
-    <p> These articles were published and archived on the 2022-05-25</p>
+    <h1>1. Critical 'Pantsdown' BMC Vulnerability Affects QCT Servers Used in Data Centers</h1>
+    <p> <img style="border:10px solid black;" src =https://thehackernews.com/new-images/img/b/R29vZ2xl/AVvXsEh5qXtbrwov4CHd0lFNhWZ_cSmFjDmKwGt7PsGSv8qbIprEUoNM4Ye2-FyPthe-sQtI1lFxIRug7xKy9nFNHOke6x_QJWylWv2q1QR-GstSeNdEfHcw2k1ayiUKy80BOHjg3cpL_MoopxaoENYD3tHPmNjFjhw8MrKQZ4YYu39k5O7zl-Hzz7udzJW1/s728-e1000/CHIP.jpg><br><br> Quanta Cloud Technology (QCT) servers have been identified as vulnerable to the severe &quot;Pantsdown&quot; Baseboard Management Controller (BMC) flaw, according to new research published today.  &quot;An attacker running code on a vulnerable QCT server would be able to &#39;hop&#39; from the server host to the BMC and move their attacks to the server management network, possibly continue and obtain further permissions to other BMCs on the network and by doing that gaining access to other servers,&quot; firmware and hardware security firm Eclypsium&#160; said .  A baseboard management controller is a specialized system used for remote monitoring and management of servers, including controlling low-level hardware settings as well as installing firmware and software updates.   Tracked as&#160; CVE-2019-6260 &#160;(CVSS score: 9.8), the&#160; critical security flaw &#160;came to light in January 2019 and relates to a case of arbitrary read and write access to the BMC&#39;s physical address space, resulting in a....</p>
 
-    <h1>1. Popular PyPI Package 'ctx' and PHP Library 'phpass' Hijacked to Steal AWS Keys</h1>
-    <p> <img style="border:10px solid black;" src =https://thehackernews.com/new-images/img/b/R29vZ2xl/AVvXsEjHJ4wNORgVjUdAixTZAPzpqjXgb9ifMK6BzTTFNB24L6pThD9AaNdliGplGLVOTNP4aK1F2oP75o5tTTthPCgZrLEQ9LfukDW4ZQAlkmqG49DCXeJhEdO6vh8D2t7cI19Tobuoh_xVbDPiuqIeKImLCfSCo-xaaSnoX37hR8E3CDye5TEAkgXfWAxc/s728-e1000/python-php.jpg><br><br> Two trojanized Python and PHP packages have been uncovered in what&#39;s yet another instance of a software supply chain attack targeting the open source ecosystem.  One of the packages in question is &quot;ctx,&quot; a Python module available in the PyPi repository. The other involves &quot;phpass,&quot; a PHP package that&#39;s been forked on GitHub to distribute a rogue update.  &quot;In both cases the attacker appears to have taken over packages that have not been updated in a while,&quot; the SANS Internet Storm Center (ISC)&#160; said , one of whose volunteer incident handlers, Yee Ching, analyzed the ctx package.  It&#39;s worth noting that ctx was last published to PyPi on December 19, 2014. On the other hand, phpass hasn&#39;t received an update since it was uploaded to Packagist on August 31, 2012.  The malicious Python package, which was pushed to PyPi on May 21, 2022, has been&#160; removed from the repository , but the PHP library still continues to be&#160; available &#160;on GitHub.   In b....</p>
+    <h1>2. Experts Warn of Rise in ChromeLoader Malware Hijacking Users' Browsers</h1>
+    <p> <img style="border:10px solid black;" src =https://thehackernews.com/new-images/img/b/R29vZ2xl/AVvXsEhC6_4iDeKNNkaYLhzMFX2rBQOux3rAcqyw6Ykg2u_dSCLUkWgMluaLg9oBZNm_29xbW3V4p8Bl-F8cKwl1Q6uwl8k76vyQqd1TmQ2lk7rQpvqx0szeRosZE-8LHSfmQ_f3SIVKR0goWCh2HRaGVtYx58o6wPywRtOeohoj1T9_4k96EMxzCUIh-WDe/s728-e1000/code.jpg><br><br> A malvertising threat is witnessing a new surge in activity since its emergence earlier this year.  Dubbed ChromeLoader , the malware is a &quot;pervasive and persistent browser hijacker that modifies its victims&#39; browser settings and redirects user traffic to advertisement websites,&quot; Aedan Russell of Red Canary&#160; said &#160;in a new report.  ChromeLoader is a rogue Chrome browser extension and is typically distributed in the form of ISO files via pay-per-install sites and baited social media posts that advertise QR codes to cracked video games and pirated movies.   While it primarily functions by hijacking user search queries to Google, Yahoo, and Bing and redirecting traffic to an advertising site, it&#39;s also notable for its use of PowerShell to inject itself into the browser and get the extension added.   The malware, also known as Choziosi Loader, was first documented by G DATA earlier this February.   &quot;For now the only purpose is getting revenue via unsolicited adverti....</p>
 
-    <h1>2. SIM-based Authentication Aims to Transform Device Binding Security to End Phishing</h1>
-    <p> <img style="border:10px solid black;" src =https://thehackernews.com/new-images/img/b/R29vZ2xl/AVvXsEi-zfsB4rnjhBjacLSSoRkFMCmejtF0fjjTUuLijysH95toqM2QiM5jZXxA9Kg7u0jY6Q5Xuxg4JqHsRMzmoB8P3fRdGfjVbRwIs0EApCxj_rsAaS2YDysorzCaMQrX5hQsmxRniLR5y66CUyrPdUqRGCUjCr-t1tSfG8xRcmEYleUECZkEObdbQtN0/s728-e1000/tru.id.jpg><br><br> Let&#39;s face it: we all use email, and we all use passwords. Passwords create inherent vulnerability in the system. The success rate of phishing attacks is&#160; skyrocketing , and opportunities for the attack have greatly multiplied as lives moved online. All it takes is one password to be compromised for all other users to become victims of a data breach.&#160;  To deliver additional security, therefore, digital identities rely on verification plasters. MFA (multi-factor authentication) often falls back to knowledge factors such as password resets and OTP codes, but these are still vulnerable. As long as credentials can be shared or intercepted, they can be misused.&#160;  What is needed is a paradigm shift &#8211; from knowledge-based credentials to strong possession-factor security that can&#39;t be compromised, alongside other verification security such as biometrics.  A new possession-factor API now aims to do precisely that, replacing knowledge-based credentials, by using the SIM card for possess....</p>
+    <h1>3. Hackers Increasingly Using Browser Automation Frameworks for Malicious Activities</h1>
+    <p> <img style="border:10px solid black;" src =https://thehackernews.com/new-images/img/b/R29vZ2xl/AVvXsEilvlTnSoi9PNjSHLsY2cwLxsb8jWUmzb3Tpk4Po4wZcvTpwx_k1eUyKEG9Iv53xDsD4GeYhLcbkPG-FXc-yoBVrVfANuK4UAtDsAIrOlO-rFVePcwz4BkmX0lIi3wsLFDuk3yCKh6k4voJNp3qh5nfLYmpE5mCoAiiCjesvHFeE8fijXHePXmcHpSk/s728-e1000/hacking.jpg><br><br> Cybersecurity researchers are calling attention to a free-to-use browser automation framework that&#39;s being increasingly used by threat actors as part of their attack campaigns.  &quot;The framework contains numerous features which we assess may be utilized in the enablement of malicious activities,&quot; researchers from Team Cymru&#160; said &#160;in a new report published Wednesday.  &quot;The technical entry bar for the framework is purposefully kept low, which has served to create an active community of content developers and contributors, with actors in the underground economy advertising their time for the creation of bespoke tooling.&quot;   The U.S. cybersecurity company said it observed command-and-control (C2) IP addresses associated with malware such as&#160; Bumblebee ,&#160; BlackGuard , and&#160; RedLine Stealer &#160;establishing connections to the downloads subdomain of Bablosoft (&quot;downloads.bablosoft[.]com&quot;), the maker of the Browser Automation Studio (BAS).  Bablosoft was previously....</p>
 
-    <h1>3. Malware Analysis: Trickbot</h1>
-    <p> <img style="border:10px solid black;" src =https://thehackernews.com/new-images/img/b/R29vZ2xl/AVvXsEgryO4wnLxb4fGeKz4Tr_PrD6PjHDS3wDCZEb3rMwRJprNyY2zfdjCeYk7Ojz2B8pQsx2_deYOH-ihW-2Syz5oFCc7YoiVT3q_Y2D1EuLq4WGIhuluu7cucWQZeg9Gff3BtCjCB8qocHcS3o4e5Ilb2SnrbIttC8CiMjt2vCwBOsTt4NqcGm0oTV6Lb/s728-e1000/trickbot.jpg><br><br> Cybersecurity researchers have disclosed details of the latest version of the Chaos ransomware line, dubbed Yashma.  &quot;Though Chaos ransomware builder has only been in the wild for a year, Yashma claims to be the sixth version (v6.0) of this malware,&quot; BlackBerry research and intelligence team said in a report  shared with The Hacker News.  Chaos is a customizable ransomware builder that&#160; emerged &#160;in underground forums on June 9, 2021, by falsely marketing itself as the .NET version of Ryuk despite sharing no such overlaps with the notorious counterpart.  The fact that it&#39;s offered for sale also means that any malicious actor can purchase the builder and develop their own ransomware strains, turning it into a potent threat.  It has since undergone five successive iterations aimed at improving its functionalities: version 2.0 on June 17, version 3.0 on July 5, version 4.0 on August 5, and version 5.0 in early 2022.   While the first three variants of Chaos functioned more l....</p>
+    <h1>4. The Added Dangers Privileged Accounts Pose to Your Active Directory</h1>
+    <p> <img style="border:10px solid black;" src =https://thehackernews.com/new-images/img/b/R29vZ2xl/AVvXsEgmmfx6hTwg1JHwOikY2zAAKvd9XNbSGswokbaw1DxdBAzW99nOuZ5vxwp4V9in3PdyMrSwuSr9wJo76T1wfeZs_TOl84cIfNnWrJ5quOUND7kPcqIywtQl8Z7aD2tzTQ5Hwt0YtAFQKE8OBWyiqViZ_92g-wuxT9QD7arO4Sj4na6ANwQw5pYl_0NC/s728-e1000/ad.jpg><br><br> In any organization, there are certain accounts that are designated as being privileged. These privileged accounts differ from standard user accounts in that they have permission to perform actions that go beyond what standard users can do. The actions vary based on the nature of the account but can include anything from setting up new user accounts to shutting down mission-critical systems.  Privileged accounts are essential tools. Without these accounts, the IT staff would be unable to do its job. At the same time, privileged accounts can pose a serious threat to an organization's security.  Added risk of a privileged account&#160;  Imagine for a moment that a hacker manages to steal a standard user's password and is able to log in as that user. Even though the hacker would have access to certain resources at that point, they would be constrained by the user's privileges (or lack thereof). In other words, the hacker would be able to browse the Internet, open some applications, and access....</p>
 
-    <h1>4. Conti Ransomware Operation Shut Down After Splitting into Smaller Groups</h1>
-    <p> <img style="border:10px solid black;" src =https://thehackernews.com/new-images/img/b/R29vZ2xl/AVvXsEiKHqWyu6ayG9ghnS5f8jG_vMeSkG_6LSLduLJsiiMuljEC5I0brYwYMq_CmFjmupoi_ouAIa_JZpcAyrrGGeJS_DWWtRZcbFLbI6SvIK9FaIZhQnHOJ0WjZc2O0M4VChQNBudaYFLvV9TyoazWtqZF4pH4UMIZuNCmGkE-PDRtn6i612m4p-X2c0kT/s728-e1000/conti-ransomware.jpg><br><br> In this day and age, we are not dealing with roughly pieced together, homebrew type of viruses anymore. Malware is an industry, and professional developers are found to exchange, be it by stealing one&#39;s code or deliberate collaboration. Attacks are multi-layer these days, with diverse sophisticated software apps taking over different jobs along the attack-chain from initial compromise to ultimate data exfiltration or encryption. The specific tools for each stage are highly specialized and can often be rented as a service, including customer support and subscription models for professional (ab)use. Obviously, this has largely increased both the availability and the potential effectiveness and impact of malware. Sound scary?&#160;  Well, it does, but the apparent professionalization actually does have some good sides too. One factor is that certain reused modules commonly found in malware can be used to identify, track, and analyze professional attack software. Ultimately this means that....</p>
+    <h1>5. Tails OS Users Advised Not to Use Tor Browser Until Critical Firefox Bugs are Patched</h1>
+    <p> <img style="border:10px solid black;" src =https://thehackernews.com/new-images/img/b/R29vZ2xl/AVvXsEh5pAXGE44Uu1sVHJj3FI4VsKJXijPMdm2L0na0sV3_3TyAtpJTMtHVpR54e-kSHocCy8PIHPgxPZgaH_Tq77p4jW4vGe2QqtRq0eB8jlMYwu54pncrdeuBAepD0vZeT28cmpbqcSO5Mf9O0Z_2jFiQwQKBm4iP2q6T8shjYEjYOSCkF-awKtSHan7V/s728-e1000/tails.jpg><br><br> The maintainers of the Tails project have issued a warning that the Tor Browser that&#39;s bundled with the operating system is unsafe to use for accessing or entering sensitive information.  &quot;We recommend that you stop using Tails until the release of 5.1 (May 31) if you use Tor Browser for sensitive information (passwords, private messages, personal information, etc.),&quot; the project&#160; said &#160;in an advisory issued this week.  Tails, short for The Amnesic Incognito Live System, is a security-oriented Debian-based Linux distribution aimed at preserving privacy and anonymity by connecting to the internet through the Tor network.   The alert comes as Mozilla on May 20, 2022 rolled out fixes for&#160; two critical zero-day flaws &#160;in its Firefox browser, a modified version of which acts as the foundation of the Tor Browser.  Tracked as CVE-2022-1802 and CVE-2022-1529, the two vulnerabilities are what&#39;s referred to as&#160; prototype pollution &#160;that could be weaponized to gain JavaScript c....</p>
 
-    <h1>5. Microsoft Warns of Web Skimmers Mimicking Google Analytics and Meta Pixel Code</h1>
-    <p> <img style="border:10px solid black;" src =https://thehackernews.com/new-images/img/b/R29vZ2xl/AVvXsEjZQRF78eeYciWi90IJpsBGKspzpsIPKgrNr3oSH4W5Yknpy2jl5STI_ykVj_BLNLUJV0k9FVw9aKN7WcdRow_Pzr7bfQxkr9Z0BVMVgdZGMrz99PFksoUru3yBRs5iQbgLUb_QuYegP7ASWYMdE7GgnL_sW2wMoWX7etBLnA07wELnxysQQQWdvPy_/s728-e1000/skimme.jpg><br><br> Even as the operators of Conti threatened to&#160; overthrow the Costa Rican government , the notorious cybercrime gang officially took down their infrastructure in favor of migrating their criminal activities to other ancillary operations, including Karakurt and BlackByte.  &quot;From the negotiations site, chatrooms, messengers to servers and proxy hosts - the Conti brand, not the organization itself, is shutting down,&quot; AdvIntel researchers Yelisey Bogusalvskiy and Vitali Kremez&#160; said &#160;in a report. &quot;However, this does not mean that the threat actors themselves are retiring.&quot;  The voluntary termination, with the exception of its name-and-shame blog, is said to have occurred on May 19, 2022, while an organizational rejig was happening simultaneously to ensure a smooth transition of the ransomware group&#39;s members.  AdvIntel said Conti, which is also tracked under the moniker&#160; Gold Ulrick , orchestrated its own demise by utilizing information warfare techniques.   The disb....</p>
-
-    <h1>6. Yes, Containers Are Terrific, But Watch the Security Risks</h1>
-    <p> <img style="border:10px solid black;" src =https://thehackernews.com/new-images/img/b/R29vZ2xl/AVvXsEjNd-pqNN4DFUf--Swf4LAMnD6twXwDv8hXCMKjWVgXRmGIz3FdG7ByKuRbp7FU06EGE2Uom3kib1PfeVzRIq_un1yxyrDYFo57VP9djCi5pRhrcL1NCkVd3QfvNjfxgKZw-Foh5rVf_lk-6Nn54f4GExOX5FU2j8XHjK_htOvdLvh1nBtKmt5d5azN/s728-e1000/linux.jpg><br><br> Threat actors behind web skimming campaigns are leveraging malicious JavaScript code that mimics Google Analytics and Meta Pixel scripts in an attempt to sidestep detection.  &quot;It&#39;s a shift from earlier tactics where attackers conspicuously injected malicious scripts into e-commerce platforms and content management systems (CMSs) via vulnerability exploitation, making this threat highly evasive to traditional security solutions,&quot; Microsoft 365 Defender Research Team&#160; said &#160;in a new report.  Skimming attacks, such as those by Magecart, are carried out with the goal of harvesting and exporting users&#39; payment information, such as credit card details, entered into online payment forms in e-commerce platforms, typically during the checkout process.   This is achieved by taking advantage of security vulnerabilities in third-party plugins and other tools to inject rogue JavaScript code into the online portals without the owners&#39; knowledge.  As skimming attacks have incre....</p>
+    <h1>6. Twitter Fined $150 Million for Misusing Users' Data for Advertising Without Consent</h1>
+    <p> <img style="border:10px solid black;" src =https://thehackernews.com/new-images/img/b/R29vZ2xl/AVvXsEh5cFdfNRnRsPGI13zZ38oLrO1MoQBIHktZP99gq1mIdgUmiXXf-0E3PK-1S-25-vmN1pJGISKKMwEGaQVoEruCwmzD2hlfYshQ70_dzUVCywFpp_PrDMsvtNfRfzAfZitQcD6_AXhFCimvpIjplaa1ewnAyM7X8-7m78Gswxbmvkay7deRyFi18ISd/s728-e1000/twitter.jpg><br><br> Twitter, which is in the process of being acquired by Tesla CEO Elon Musk, has agreed to pay $150 million to the U.S. Federal Trade Commission (FTC) to settle allegations that it abused non-public information collected for security purposes to serve targeted ads.  In addition to the monetary penalty for &quot;misrepresenting its privacy and security practices,&quot; the company has been banned from profiting from the deceptively collected data and ordered to notify all affected users.  &quot;Twitter obtained data from users on the pretext of harnessing it for security purposes but then ended up also using the data to target users with ads,&quot; FTC Chair Lina M. Khan&#160; said &#160;in a statement. &quot;This practice affected more than 140 million Twitter users, while boosting Twitter&#39;s primary source of revenue.&quot;   According to a&#160; complaint &#160;filed by the U.S. Justice Department, Twitter in May 2013 began enforcing a requirement for users to provide either a phone number or email ad....</p>
 
     </body>
-    </html>
+</div>
+
+    
