@@ -86,8 +86,6 @@ from tkinter import *
 from datetime import datetime
 
 from click import option
-from docutils import DataError
-#
 #--------------------------------------------------------------------#
 
 
@@ -193,22 +191,22 @@ def create_archived_html(date,titles,pictures,descriptions):
     <a href='https://thehackernews.com/'><p>The Hacker News</p></a>
     <p> These articles were published and archived on the {date[0]}</p>
 
-    <h1>{titles[0]}</h1>
+    <h1>1. {titles[0]}</h1>
     <p> <img style="border:10px solid black;" src =https://thehackernews.com/new-images/img/b/R29vZ2xl{pictures[0]}><br><br>{descriptions[0]}....</p>
 
-    <h1>{titles[1]}</h1>
+    <h1>2. {titles[1]}</h1>
     <p> <img style="border:10px solid black;" src =https://thehackernews.com/new-images/img/b/R29vZ2xl{pictures[1]}><br><br>{descriptions[1]}....</p>
 
-    <h1>{titles[2]}</h1>
+    <h1>3. {titles[2]}</h1>
     <p> <img style="border:10px solid black;" src =https://thehackernews.com/new-images/img/b/R29vZ2xl{pictures[2]}><br><br>{descriptions[2]}....</p>
 
-    <h1>{titles[3]}</h1>
+    <h1>4. {titles[3]}</h1>
     <p> <img style="border:10px solid black;" src =https://thehackernews.com/new-images/img/b/R29vZ2xl{pictures[3]}><br><br>{descriptions[3]}....</p>
 
-    <h1>{titles[4]}</h1>
+    <h1>5. {titles[4]}</h1>
     <p> <img style="border:10px solid black;" src =https://thehackernews.com/new-images/img/b/R29vZ2xl{pictures[4]}><br><br>{descriptions[4]}....</p>
 
-    <h1>{titles[5]}</h1>
+    <h1>6. {titles[5]}</h1>
     <p> <img style="border:10px solid black;" src =https://thehackernews.com/new-images/img/b/R29vZ2xl{pictures[5]}><br><br>{descriptions[5]}....</p>
 
     </body>
@@ -232,7 +230,8 @@ def scrape_news_and_archive():
         move_file(src= f'{date}.html' , dst= 'InternetArchive')
         # append new file to list box options
         options.append(f'{date}.html')
-        # reload options menu data    
+        # reload options menu data
+        selection_box.insert(END,f'{date}.html')
     else:
          print('---- File Already Exists ----')
 
@@ -320,11 +319,10 @@ def main():
     tk.mainloop()
 
 #refresh interface
-def refresh_gui():
+def refresh_listbox():
     """Purpose of this function is to reload the GUI interface
     where neccesary, example would be to update the InternetArchive
     and list box."""
-    tk.destroy()
-    main()
+    selection_box.update()
 
 main()
