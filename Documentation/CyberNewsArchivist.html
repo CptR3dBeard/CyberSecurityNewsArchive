@@ -50,9 +50,6 @@
             <li>
                     <a class="function" href="#main">main</a>
             </li>
-            <li>
-                    <a class="function" href="#refresh_listbox">refresh_listbox</a>
-            </li>
     </ul>
 
 
@@ -396,69 +393,69 @@ CyberNewsArchivist    </h1>
 </span><span id="L-320"><a href="#L-320"><span class="linenos">320</span></a>
 </span><span id="L-321"><a href="#L-321"><span class="linenos">321</span></a><span class="c1"># !!!START of Instruction menu functions!!!</span>
 </span><span id="L-322"><a href="#L-322"><span class="linenos">322</span></a><span class="k">def</span> <span class="nf">how_to_use</span><span class="p">():</span>
-</span><span id="L-323"><a href="#L-323"><span class="linenos">323</span></a>    <span class="n">messagebox</span><span class="o">.</span><span class="n">showinfo</span><span class="p">(</span><span class="n">instructions_window</span><span class="p">,</span><span class="n">message</span><span class="o">=</span><span class="s1">&#39;1. Firstly you must select a news article from our menu</span><span class="se">\n\</span>
-</span><span id="L-324"><a href="#L-324"><span class="linenos">324</span></a><span class="s1">    2. You must hit extract from news archive button which is located below our file selection box</span><span class="se">\n\</span>
-</span><span id="L-325"><a href="#L-325"><span class="linenos">325</span></a><span class="s1">    3. Lastly you then hit Display news article and you will be directed to an offline generated document containing the news.&#39;</span><span class="p">)</span>
-</span><span id="L-326"><a href="#L-326"><span class="linenos">326</span></a>
-</span><span id="L-327"><a href="#L-327"><span class="linenos">327</span></a><span class="k">def</span> <span class="nf">purpose_message_box</span><span class="p">():</span>
-</span><span id="L-328"><a href="#L-328"><span class="linenos">328</span></a>    <span class="n">messagebox</span><span class="o">.</span><span class="n">showinfo</span><span class="p">(</span><span class="n">instructions_window</span><span class="p">,</span><span class="n">message</span><span class="o">=</span><span class="s1">&#39;The purpose of this program is to to safely and legally archive news articles</span><span class="se">\</span>
-</span><span id="L-329"><a href="#L-329"><span class="linenos">329</span></a><span class="s1">    that have been posted online. In addition, allowing users to retrieve newly generated webpages from specific dates and view the events</span><span class="se">\</span>
-</span><span id="L-330"><a href="#L-330"><span class="linenos">330</span></a><span class="s1">    of the day&#39;</span><span class="p">)</span>
-</span><span id="L-331"><a href="#L-331"><span class="linenos">331</span></a>
-</span><span id="L-332"><a href="#L-332"><span class="linenos">332</span></a><span class="k">def</span> <span class="nf">instructons_gui_menu</span><span class="p">():</span>
-</span><span id="L-333"><a href="#L-333"><span class="linenos">333</span></a>    <span class="sd">&quot;&quot;&quot; The purpose of this function is create an easy intelligble</span>
-</span><span id="L-334"><a href="#L-334"><span class="linenos">334</span></a><span class="sd">    GUI to give instructions and example to users, the purpose of this program</span>
-</span><span id="L-335"><a href="#L-335"><span class="linenos">335</span></a><span class="sd">    and how to use it effectively for archiving and retrieving news articles&quot;&quot;&quot;</span>
-</span><span id="L-336"><a href="#L-336"><span class="linenos">336</span></a>    <span class="k">global</span> <span class="n">instructions_window</span>
-</span><span id="L-337"><a href="#L-337"><span class="linenos">337</span></a>    <span class="c1"># window varibale to make sure the help gui is infront of base gui</span>
-</span><span id="L-338"><a href="#L-338"><span class="linenos">338</span></a>    <span class="n">instructions_window</span> <span class="o">=</span> <span class="n">Toplevel</span><span class="p">(</span><span class="n">tk</span><span class="p">)</span>
-</span><span id="L-339"><a href="#L-339"><span class="linenos">339</span></a>    <span class="c1"># setting the window geometry</span>
-</span><span id="L-340"><a href="#L-340"><span class="linenos">340</span></a>    <span class="n">instructions_window</span><span class="o">.</span><span class="n">geometry</span><span class="p">(</span><span class="s1">&#39;300x300&#39;</span><span class="p">)</span>
-</span><span id="L-341"><a href="#L-341"><span class="linenos">341</span></a>    <span class="c1"># creating our label and buttons</span>
-</span><span id="L-342"><a href="#L-342"><span class="linenos">342</span></a>    <span class="n">instructions_Label</span> <span class="o">=</span>  <span class="n">Label</span><span class="p">(</span><span class="n">instructions_window</span><span class="p">,</span><span class="n">text</span><span class="o">=</span><span class="s1">&#39;What do you need assistance with?&#39;</span><span class="p">)</span>
-</span><span id="L-343"><a href="#L-343"><span class="linenos">343</span></a>    <span class="n">purpose_button</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span><span class="n">instructions_window</span><span class="p">,</span><span class="n">text</span><span class="o">=</span><span class="s1">&#39;What is the purpose of this program?&#39;</span><span class="p">,</span><span class="n">command</span><span class="o">=</span><span class="n">purpose_message_box</span><span class="p">)</span>
-</span><span id="L-344"><a href="#L-344"><span class="linenos">344</span></a>    <span class="n">how_to_use_button</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span><span class="n">instructions_window</span><span class="p">,</span><span class="n">text</span><span class="o">=</span><span class="s1">&#39;How do i use this program?&#39;</span><span class="p">,</span><span class="n">command</span><span class="o">=</span><span class="n">how_to_use</span><span class="p">)</span>
-</span><span id="L-345"><a href="#L-345"><span class="linenos">345</span></a>    <span class="c1"># using place method to position the Labels and Buttons of instructions menu</span>
-</span><span id="L-346"><a href="#L-346"><span class="linenos">346</span></a>    <span class="n">instructions_Label</span><span class="o">.</span><span class="n">place</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
-</span><span id="L-347"><a href="#L-347"><span class="linenos">347</span></a>    <span class="n">purpose_button</span><span class="o">.</span><span class="n">place</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span>
-</span><span id="L-348"><a href="#L-348"><span class="linenos">348</span></a>    <span class="n">how_to_use_button</span><span class="o">.</span><span class="n">place</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span>
-</span><span id="L-349"><a href="#L-349"><span class="linenos">349</span></a>
-</span><span id="L-350"><a href="#L-350"><span class="linenos">350</span></a>
-</span><span id="L-351"><a href="#L-351"><span class="linenos">351</span></a><span class="c1"># !!!End of Instruction Menu Functions!!!</span>
-</span><span id="L-352"><a href="#L-352"><span class="linenos">352</span></a><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-</span><span id="L-353"><a href="#L-353"><span class="linenos">353</span></a>    <span class="c1"># All Function calls</span>
-</span><span id="L-354"><a href="#L-354"><span class="linenos">354</span></a>    <span class="n">options_menu_data</span><span class="p">()</span>
-</span><span id="L-355"><a href="#L-355"><span class="linenos">355</span></a>
-</span><span id="L-356"><a href="#L-356"><span class="linenos">356</span></a>
-</span><span id="L-357"><a href="#L-357"><span class="linenos">357</span></a>    <span class="c1"># defining our buttons</span>
-</span><span id="L-358"><a href="#L-358"><span class="linenos">358</span></a>    <span class="c1"># extract information from news archive</span>
-</span><span id="L-359"><a href="#L-359"><span class="linenos">359</span></a>    <span class="n">extract_html_news_file</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span><span class="n">tk</span><span class="p">,</span><span class="n">text</span><span class="o">=</span><span class="s1">&#39;Extract News Article From Archive&#39;</span><span class="p">,</span><span class="n">command</span><span class="o">=</span> <span class="n">extract_news</span><span class="p">)</span>
-</span><span id="L-360"><a href="#L-360"><span class="linenos">360</span></a>    <span class="c1"># submit confirmation button to finalise decision</span>
-</span><span id="L-361"><a href="#L-361"><span class="linenos">361</span></a>    <span class="n">submit_button</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span><span class="n">tk</span><span class="p">,</span><span class="n">text</span><span class="o">=</span><span class="s1">&#39;Display News Article&#39;</span><span class="p">,</span><span class="n">command</span><span class="o">=</span> <span class="n">display_html</span><span class="p">)</span>
-</span><span id="L-362"><a href="#L-362"><span class="linenos">362</span></a>    <span class="c1"># label to instruct user on what to do</span>
-</span><span id="L-363"><a href="#L-363"><span class="linenos">363</span></a>    <span class="n">our_label</span> <span class="o">=</span> <span class="n">Label</span><span class="p">(</span><span class="n">tk</span><span class="p">,</span><span class="n">text</span><span class="o">=</span><span class="s1">&#39;Which News Document do you wish to view?&#39;</span><span class="p">)</span>
-</span><span id="L-364"><a href="#L-364"><span class="linenos">364</span></a>    <span class="c1"># button for archiving the latest news</span>
-</span><span id="L-365"><a href="#L-365"><span class="linenos">365</span></a>    <span class="n">archive_latest</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span><span class="n">tk</span><span class="p">,</span><span class="n">text</span><span class="o">=</span><span class="s1">&#39;Archive Latest News&#39;</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span> <span class="n">scrape_news_and_archive</span><span class="p">)</span>
-</span><span id="L-366"><a href="#L-366"><span class="linenos">366</span></a>    <span class="c1"># defining a help button</span>
-</span><span id="L-367"><a href="#L-367"><span class="linenos">367</span></a>    <span class="n">help_me</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span><span class="n">tk</span><span class="p">,</span><span class="n">text</span><span class="o">=</span><span class="s1">&#39;Help me!&#39;</span><span class="p">,</span><span class="n">command</span><span class="o">=</span> <span class="n">instructons_gui_menu</span><span class="p">)</span>
-</span><span id="L-368"><a href="#L-368"><span class="linenos">368</span></a>
-</span><span id="L-369"><a href="#L-369"><span class="linenos">369</span></a>    <span class="c1">#placing our buttons on screen</span>
-</span><span id="L-370"><a href="#L-370"><span class="linenos">370</span></a>    <span class="n">extract_html_news_file</span><span class="o">.</span><span class="n">place</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="mi">212</span><span class="p">)</span>
-</span><span id="L-371"><a href="#L-371"><span class="linenos">371</span></a>    <span class="n">selection_box</span><span class="o">.</span><span class="n">place</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span>
-</span><span id="L-372"><a href="#L-372"><span class="linenos">372</span></a>    <span class="n">submit_button</span><span class="o">.</span><span class="n">place</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="mi">240</span><span class="p">)</span>
-</span><span id="L-373"><a href="#L-373"><span class="linenos">373</span></a>    <span class="n">our_label</span><span class="o">.</span><span class="n">place</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
-</span><span id="L-374"><a href="#L-374"><span class="linenos">374</span></a>    <span class="n">help_me</span><span class="o">.</span><span class="n">place</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">178</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="mi">240</span><span class="p">)</span>
-</span><span id="L-375"><a href="#L-375"><span class="linenos">375</span></a>    <span class="n">archive_latest</span><span class="o">.</span><span class="n">place</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="mi">268</span><span class="p">)</span>
-</span><span id="L-376"><a href="#L-376"><span class="linenos">376</span></a>
-</span><span id="L-377"><a href="#L-377"><span class="linenos">377</span></a>    <span class="c1"># main event loop</span>
-</span><span id="L-378"><a href="#L-378"><span class="linenos">378</span></a>    <span class="n">tk</span><span class="o">.</span><span class="n">mainloop</span><span class="p">()</span>
-</span><span id="L-379"><a href="#L-379"><span class="linenos">379</span></a>
-</span><span id="L-380"><a href="#L-380"><span class="linenos">380</span></a><span class="c1">#refresh interface</span>
-</span><span id="L-381"><a href="#L-381"><span class="linenos">381</span></a><span class="k">def</span> <span class="nf">refresh_listbox</span><span class="p">():</span>
-</span><span id="L-382"><a href="#L-382"><span class="linenos">382</span></a>    <span class="sd">&quot;&quot;&quot;Purpose of this function is to reload the GUI interface</span>
-</span><span id="L-383"><a href="#L-383"><span class="linenos">383</span></a><span class="sd">    where neccesary, example would be to update the InternetArchive</span>
-</span><span id="L-384"><a href="#L-384"><span class="linenos">384</span></a><span class="sd">    and list box.&quot;&quot;&quot;</span>
-</span><span id="L-385"><a href="#L-385"><span class="linenos">385</span></a>    <span class="n">selection_box</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+</span><span id="L-323"><a href="#L-323"><span class="linenos">323</span></a>    <span class="sd">&quot;&quot;&quot;Provides user with a message box and instructions on how to use the program&quot;&quot;&quot;</span>
+</span><span id="L-324"><a href="#L-324"><span class="linenos">324</span></a>
+</span><span id="L-325"><a href="#L-325"><span class="linenos">325</span></a>    <span class="n">messagebox</span><span class="o">.</span><span class="n">showinfo</span><span class="p">(</span><span class="n">instructions_window</span><span class="p">,</span><span class="n">message</span><span class="o">=</span><span class="s1">&#39;1. Firstly you must select a news article from our menu</span><span class="se">\n\</span>
+</span><span id="L-326"><a href="#L-326"><span class="linenos">326</span></a><span class="s1">    2. You must hit extract from news archive button which is located below our file selection box</span><span class="se">\n\</span>
+</span><span id="L-327"><a href="#L-327"><span class="linenos">327</span></a><span class="s1">    3. Lastly you then hit Display news article and you will be directed to an offline generated document containing the news.&#39;</span><span class="p">)</span>
+</span><span id="L-328"><a href="#L-328"><span class="linenos">328</span></a>
+</span><span id="L-329"><a href="#L-329"><span class="linenos">329</span></a><span class="k">def</span> <span class="nf">purpose_message_box</span><span class="p">():</span>
+</span><span id="L-330"><a href="#L-330"><span class="linenos">330</span></a>    <span class="sd">&quot;&quot;&quot; Provides user with a message box and short message explaining the purpose of the program&quot;&quot;&quot;</span>
+</span><span id="L-331"><a href="#L-331"><span class="linenos">331</span></a>    
+</span><span id="L-332"><a href="#L-332"><span class="linenos">332</span></a>    <span class="n">messagebox</span><span class="o">.</span><span class="n">showinfo</span><span class="p">(</span><span class="n">instructions_window</span><span class="p">,</span><span class="n">message</span><span class="o">=</span><span class="s1">&#39;The purpose of this program is to to safely and legally archive news articles</span><span class="se">\</span>
+</span><span id="L-333"><a href="#L-333"><span class="linenos">333</span></a><span class="s1">    that have been posted online. In addition, allowing users to retrieve newly generated webpages from specific dates and view the events</span><span class="se">\</span>
+</span><span id="L-334"><a href="#L-334"><span class="linenos">334</span></a><span class="s1">    of the day&#39;</span><span class="p">)</span>
+</span><span id="L-335"><a href="#L-335"><span class="linenos">335</span></a>
+</span><span id="L-336"><a href="#L-336"><span class="linenos">336</span></a><span class="k">def</span> <span class="nf">instructons_gui_menu</span><span class="p">():</span>
+</span><span id="L-337"><a href="#L-337"><span class="linenos">337</span></a>    <span class="sd">&quot;&quot;&quot; The purpose of this function is create an easy intelligble</span>
+</span><span id="L-338"><a href="#L-338"><span class="linenos">338</span></a><span class="sd">    GUI to give instructions and example to users, the purpose of this program</span>
+</span><span id="L-339"><a href="#L-339"><span class="linenos">339</span></a><span class="sd">    and how to use it effectively for archiving and retrieving news articles&quot;&quot;&quot;</span>
+</span><span id="L-340"><a href="#L-340"><span class="linenos">340</span></a>    <span class="k">global</span> <span class="n">instructions_window</span>
+</span><span id="L-341"><a href="#L-341"><span class="linenos">341</span></a>    <span class="c1"># window varibale to make sure the help gui is infront of base gui</span>
+</span><span id="L-342"><a href="#L-342"><span class="linenos">342</span></a>    <span class="n">instructions_window</span> <span class="o">=</span> <span class="n">Toplevel</span><span class="p">(</span><span class="n">tk</span><span class="p">)</span>
+</span><span id="L-343"><a href="#L-343"><span class="linenos">343</span></a>    <span class="c1"># setting the window geometry</span>
+</span><span id="L-344"><a href="#L-344"><span class="linenos">344</span></a>    <span class="n">instructions_window</span><span class="o">.</span><span class="n">geometry</span><span class="p">(</span><span class="s1">&#39;300x300&#39;</span><span class="p">)</span>
+</span><span id="L-345"><a href="#L-345"><span class="linenos">345</span></a>    <span class="c1"># creating our label and buttons</span>
+</span><span id="L-346"><a href="#L-346"><span class="linenos">346</span></a>    <span class="n">instructions_Label</span> <span class="o">=</span>  <span class="n">Label</span><span class="p">(</span><span class="n">instructions_window</span><span class="p">,</span><span class="n">text</span><span class="o">=</span><span class="s1">&#39;What do you need assistance with?&#39;</span><span class="p">)</span>
+</span><span id="L-347"><a href="#L-347"><span class="linenos">347</span></a>    <span class="n">purpose_button</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span><span class="n">instructions_window</span><span class="p">,</span><span class="n">text</span><span class="o">=</span><span class="s1">&#39;What is the purpose of this program?&#39;</span><span class="p">,</span><span class="n">command</span><span class="o">=</span><span class="n">purpose_message_box</span><span class="p">)</span>
+</span><span id="L-348"><a href="#L-348"><span class="linenos">348</span></a>    <span class="n">how_to_use_button</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span><span class="n">instructions_window</span><span class="p">,</span><span class="n">text</span><span class="o">=</span><span class="s1">&#39;How do i use this program?&#39;</span><span class="p">,</span><span class="n">command</span><span class="o">=</span><span class="n">how_to_use</span><span class="p">)</span>
+</span><span id="L-349"><a href="#L-349"><span class="linenos">349</span></a>    <span class="c1"># using place method to position the Labels and Buttons of instructions menu</span>
+</span><span id="L-350"><a href="#L-350"><span class="linenos">350</span></a>    <span class="n">instructions_Label</span><span class="o">.</span><span class="n">place</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+</span><span id="L-351"><a href="#L-351"><span class="linenos">351</span></a>    <span class="n">purpose_button</span><span class="o">.</span><span class="n">place</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span>
+</span><span id="L-352"><a href="#L-352"><span class="linenos">352</span></a>    <span class="n">how_to_use_button</span><span class="o">.</span><span class="n">place</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span>
+</span><span id="L-353"><a href="#L-353"><span class="linenos">353</span></a>
+</span><span id="L-354"><a href="#L-354"><span class="linenos">354</span></a>
+</span><span id="L-355"><a href="#L-355"><span class="linenos">355</span></a><span class="c1"># !!!End of Instruction Menu Functions!!!</span>
+</span><span id="L-356"><a href="#L-356"><span class="linenos">356</span></a><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+</span><span id="L-357"><a href="#L-357"><span class="linenos">357</span></a>    <span class="sd">&quot;&quot;&quot; This function serves as the main fubction to call from start up&quot;&quot;&quot;</span>
+</span><span id="L-358"><a href="#L-358"><span class="linenos">358</span></a>    
+</span><span id="L-359"><a href="#L-359"><span class="linenos">359</span></a>    <span class="c1"># All Function calls</span>
+</span><span id="L-360"><a href="#L-360"><span class="linenos">360</span></a>    <span class="n">options_menu_data</span><span class="p">()</span>
+</span><span id="L-361"><a href="#L-361"><span class="linenos">361</span></a>
+</span><span id="L-362"><a href="#L-362"><span class="linenos">362</span></a>
+</span><span id="L-363"><a href="#L-363"><span class="linenos">363</span></a>    <span class="c1"># defining our buttons</span>
+</span><span id="L-364"><a href="#L-364"><span class="linenos">364</span></a>
+</span><span id="L-365"><a href="#L-365"><span class="linenos">365</span></a>    <span class="c1"># extract information from news archive</span>
+</span><span id="L-366"><a href="#L-366"><span class="linenos">366</span></a>    <span class="n">extract_html_news_file</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span><span class="n">tk</span><span class="p">,</span><span class="n">text</span><span class="o">=</span><span class="s1">&#39;Extract News Article From Archive&#39;</span><span class="p">,</span><span class="n">command</span><span class="o">=</span> <span class="n">extract_news</span><span class="p">)</span>
+</span><span id="L-367"><a href="#L-367"><span class="linenos">367</span></a>    <span class="c1"># submit confirmation button to finalise decision</span>
+</span><span id="L-368"><a href="#L-368"><span class="linenos">368</span></a>    <span class="n">submit_button</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span><span class="n">tk</span><span class="p">,</span><span class="n">text</span><span class="o">=</span><span class="s1">&#39;Display News Article&#39;</span><span class="p">,</span><span class="n">command</span><span class="o">=</span> <span class="n">display_html</span><span class="p">)</span>
+</span><span id="L-369"><a href="#L-369"><span class="linenos">369</span></a>    <span class="c1"># label to instruct user on what to do</span>
+</span><span id="L-370"><a href="#L-370"><span class="linenos">370</span></a>    <span class="n">our_label</span> <span class="o">=</span> <span class="n">Label</span><span class="p">(</span><span class="n">tk</span><span class="p">,</span><span class="n">text</span><span class="o">=</span><span class="s1">&#39;Which News Document do you wish to view?&#39;</span><span class="p">)</span>
+</span><span id="L-371"><a href="#L-371"><span class="linenos">371</span></a>    <span class="c1"># button for archiving the latest news</span>
+</span><span id="L-372"><a href="#L-372"><span class="linenos">372</span></a>    <span class="n">archive_latest</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span><span class="n">tk</span><span class="p">,</span><span class="n">text</span><span class="o">=</span><span class="s1">&#39;Archive Latest News&#39;</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span> <span class="n">scrape_news_and_archive</span><span class="p">)</span>
+</span><span id="L-373"><a href="#L-373"><span class="linenos">373</span></a>    <span class="c1"># defining a help button</span>
+</span><span id="L-374"><a href="#L-374"><span class="linenos">374</span></a>    <span class="n">help_me</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span><span class="n">tk</span><span class="p">,</span><span class="n">text</span><span class="o">=</span><span class="s1">&#39;Help me!&#39;</span><span class="p">,</span><span class="n">command</span><span class="o">=</span> <span class="n">instructons_gui_menu</span><span class="p">)</span>
+</span><span id="L-375"><a href="#L-375"><span class="linenos">375</span></a>
+</span><span id="L-376"><a href="#L-376"><span class="linenos">376</span></a>    <span class="c1">#placing our buttons on screen</span>
+</span><span id="L-377"><a href="#L-377"><span class="linenos">377</span></a>    <span class="n">extract_html_news_file</span><span class="o">.</span><span class="n">place</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="mi">212</span><span class="p">)</span>
+</span><span id="L-378"><a href="#L-378"><span class="linenos">378</span></a>    <span class="n">selection_box</span><span class="o">.</span><span class="n">place</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span>
+</span><span id="L-379"><a href="#L-379"><span class="linenos">379</span></a>    <span class="n">submit_button</span><span class="o">.</span><span class="n">place</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="mi">240</span><span class="p">)</span>
+</span><span id="L-380"><a href="#L-380"><span class="linenos">380</span></a>    <span class="n">our_label</span><span class="o">.</span><span class="n">place</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+</span><span id="L-381"><a href="#L-381"><span class="linenos">381</span></a>    <span class="n">help_me</span><span class="o">.</span><span class="n">place</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">178</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="mi">240</span><span class="p">)</span>
+</span><span id="L-382"><a href="#L-382"><span class="linenos">382</span></a>    <span class="n">archive_latest</span><span class="o">.</span><span class="n">place</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="mi">268</span><span class="p">)</span>
+</span><span id="L-383"><a href="#L-383"><span class="linenos">383</span></a>
+</span><span id="L-384"><a href="#L-384"><span class="linenos">384</span></a>    <span class="c1"># main event loop</span>
+</span><span id="L-385"><a href="#L-385"><span class="linenos">385</span></a>    <span class="n">tk</span><span class="o">.</span><span class="n">mainloop</span><span class="p">()</span>
 </span><span id="L-386"><a href="#L-386"><span class="linenos">386</span></a>
 </span><span id="L-387"><a href="#L-387"><span class="linenos">387</span></a><span class="n">main</span><span class="p">()</span>
 </span></pre></div>
@@ -762,13 +759,17 @@ desired document.</p>
     </div>
     <a class="headerlink" href="#how_to_use"></a>
             <div class="pdoc-code codehilite"><pre><span></span><span id="how_to_use-324"><a href="#how_to_use-324"><span class="linenos">324</span></a><span class="k">def</span> <span class="nf">how_to_use</span><span class="p">():</span>
-</span><span id="how_to_use-325"><a href="#how_to_use-325"><span class="linenos">325</span></a>    <span class="n">messagebox</span><span class="o">.</span><span class="n">showinfo</span><span class="p">(</span><span class="n">instructions_window</span><span class="p">,</span><span class="n">message</span><span class="o">=</span><span class="s1">&#39;1. Firstly you must select a news article from our menu</span><span class="se">\n\</span>
-</span><span id="how_to_use-326"><a href="#how_to_use-326"><span class="linenos">326</span></a><span class="s1">    2. You must hit extract from news archive button which is located below our file selection box</span><span class="se">\n\</span>
-</span><span id="how_to_use-327"><a href="#how_to_use-327"><span class="linenos">327</span></a><span class="s1">    3. Lastly you then hit Display news article and you will be directed to an offline generated document containing the news.&#39;</span><span class="p">)</span>
+</span><span id="how_to_use-325"><a href="#how_to_use-325"><span class="linenos">325</span></a>    <span class="sd">&quot;&quot;&quot;Provides user with a message box and instructions on how to use the program&quot;&quot;&quot;</span>
+</span><span id="how_to_use-326"><a href="#how_to_use-326"><span class="linenos">326</span></a>
+</span><span id="how_to_use-327"><a href="#how_to_use-327"><span class="linenos">327</span></a>    <span class="n">messagebox</span><span class="o">.</span><span class="n">showinfo</span><span class="p">(</span><span class="n">instructions_window</span><span class="p">,</span><span class="n">message</span><span class="o">=</span><span class="s1">&#39;1. Firstly you must select a news article from our menu</span><span class="se">\n\</span>
+</span><span id="how_to_use-328"><a href="#how_to_use-328"><span class="linenos">328</span></a><span class="s1">    2. You must hit extract from news archive button which is located below our file selection box</span><span class="se">\n\</span>
+</span><span id="how_to_use-329"><a href="#how_to_use-329"><span class="linenos">329</span></a><span class="s1">    3. Lastly you then hit Display news article and you will be directed to an offline generated document containing the news.&#39;</span><span class="p">)</span>
 </span></pre></div>
 
 
-    
+            <div class="docstring"><p>Provides user with a message box and instructions on how to use the program</p>
+</div>
+
 
                 </section>
                 <section id="purpose_message_box">
@@ -782,14 +783,18 @@ desired document.</p>
 
     </div>
     <a class="headerlink" href="#purpose_message_box"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="purpose_message_box-329"><a href="#purpose_message_box-329"><span class="linenos">329</span></a><span class="k">def</span> <span class="nf">purpose_message_box</span><span class="p">():</span>
-</span><span id="purpose_message_box-330"><a href="#purpose_message_box-330"><span class="linenos">330</span></a>    <span class="n">messagebox</span><span class="o">.</span><span class="n">showinfo</span><span class="p">(</span><span class="n">instructions_window</span><span class="p">,</span><span class="n">message</span><span class="o">=</span><span class="s1">&#39;The purpose of this program is to to safely and legally archive news articles</span><span class="se">\</span>
-</span><span id="purpose_message_box-331"><a href="#purpose_message_box-331"><span class="linenos">331</span></a><span class="s1">    that have been posted online. In addition, allowing users to retrieve newly generated webpages from specific dates and view the events</span><span class="se">\</span>
-</span><span id="purpose_message_box-332"><a href="#purpose_message_box-332"><span class="linenos">332</span></a><span class="s1">    of the day&#39;</span><span class="p">)</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="purpose_message_box-331"><a href="#purpose_message_box-331"><span class="linenos">331</span></a><span class="k">def</span> <span class="nf">purpose_message_box</span><span class="p">():</span>
+</span><span id="purpose_message_box-332"><a href="#purpose_message_box-332"><span class="linenos">332</span></a>    <span class="sd">&quot;&quot;&quot; Provides user with a message box and short message explaining the purpose of the program&quot;&quot;&quot;</span>
+</span><span id="purpose_message_box-333"><a href="#purpose_message_box-333"><span class="linenos">333</span></a>    
+</span><span id="purpose_message_box-334"><a href="#purpose_message_box-334"><span class="linenos">334</span></a>    <span class="n">messagebox</span><span class="o">.</span><span class="n">showinfo</span><span class="p">(</span><span class="n">instructions_window</span><span class="p">,</span><span class="n">message</span><span class="o">=</span><span class="s1">&#39;The purpose of this program is to to safely and legally archive news articles</span><span class="se">\</span>
+</span><span id="purpose_message_box-335"><a href="#purpose_message_box-335"><span class="linenos">335</span></a><span class="s1">    that have been posted online. In addition, allowing users to retrieve newly generated webpages from specific dates and view the events</span><span class="se">\</span>
+</span><span id="purpose_message_box-336"><a href="#purpose_message_box-336"><span class="linenos">336</span></a><span class="s1">    of the day&#39;</span><span class="p">)</span>
 </span></pre></div>
 
 
-    
+            <div class="docstring"><p>Provides user with a message box and short message explaining the purpose of the program</p>
+</div>
+
 
                 </section>
                 <section id="instructons_gui_menu">
@@ -803,23 +808,23 @@ desired document.</p>
 
     </div>
     <a class="headerlink" href="#instructons_gui_menu"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="instructons_gui_menu-334"><a href="#instructons_gui_menu-334"><span class="linenos">334</span></a><span class="k">def</span> <span class="nf">instructons_gui_menu</span><span class="p">():</span>
-</span><span id="instructons_gui_menu-335"><a href="#instructons_gui_menu-335"><span class="linenos">335</span></a>    <span class="sd">&quot;&quot;&quot; The purpose of this function is create an easy intelligble</span>
-</span><span id="instructons_gui_menu-336"><a href="#instructons_gui_menu-336"><span class="linenos">336</span></a><span class="sd">    GUI to give instructions and example to users, the purpose of this program</span>
-</span><span id="instructons_gui_menu-337"><a href="#instructons_gui_menu-337"><span class="linenos">337</span></a><span class="sd">    and how to use it effectively for archiving and retrieving news articles&quot;&quot;&quot;</span>
-</span><span id="instructons_gui_menu-338"><a href="#instructons_gui_menu-338"><span class="linenos">338</span></a>    <span class="k">global</span> <span class="n">instructions_window</span>
-</span><span id="instructons_gui_menu-339"><a href="#instructons_gui_menu-339"><span class="linenos">339</span></a>    <span class="c1"># window varibale to make sure the help gui is infront of base gui</span>
-</span><span id="instructons_gui_menu-340"><a href="#instructons_gui_menu-340"><span class="linenos">340</span></a>    <span class="n">instructions_window</span> <span class="o">=</span> <span class="n">Toplevel</span><span class="p">(</span><span class="n">tk</span><span class="p">)</span>
-</span><span id="instructons_gui_menu-341"><a href="#instructons_gui_menu-341"><span class="linenos">341</span></a>    <span class="c1"># setting the window geometry</span>
-</span><span id="instructons_gui_menu-342"><a href="#instructons_gui_menu-342"><span class="linenos">342</span></a>    <span class="n">instructions_window</span><span class="o">.</span><span class="n">geometry</span><span class="p">(</span><span class="s1">&#39;300x300&#39;</span><span class="p">)</span>
-</span><span id="instructons_gui_menu-343"><a href="#instructons_gui_menu-343"><span class="linenos">343</span></a>    <span class="c1"># creating our label and buttons</span>
-</span><span id="instructons_gui_menu-344"><a href="#instructons_gui_menu-344"><span class="linenos">344</span></a>    <span class="n">instructions_Label</span> <span class="o">=</span>  <span class="n">Label</span><span class="p">(</span><span class="n">instructions_window</span><span class="p">,</span><span class="n">text</span><span class="o">=</span><span class="s1">&#39;What do you need assistance with?&#39;</span><span class="p">)</span>
-</span><span id="instructons_gui_menu-345"><a href="#instructons_gui_menu-345"><span class="linenos">345</span></a>    <span class="n">purpose_button</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span><span class="n">instructions_window</span><span class="p">,</span><span class="n">text</span><span class="o">=</span><span class="s1">&#39;What is the purpose of this program?&#39;</span><span class="p">,</span><span class="n">command</span><span class="o">=</span><span class="n">purpose_message_box</span><span class="p">)</span>
-</span><span id="instructons_gui_menu-346"><a href="#instructons_gui_menu-346"><span class="linenos">346</span></a>    <span class="n">how_to_use_button</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span><span class="n">instructions_window</span><span class="p">,</span><span class="n">text</span><span class="o">=</span><span class="s1">&#39;How do i use this program?&#39;</span><span class="p">,</span><span class="n">command</span><span class="o">=</span><span class="n">how_to_use</span><span class="p">)</span>
-</span><span id="instructons_gui_menu-347"><a href="#instructons_gui_menu-347"><span class="linenos">347</span></a>    <span class="c1"># using place method to position the Labels and Buttons of instructions menu</span>
-</span><span id="instructons_gui_menu-348"><a href="#instructons_gui_menu-348"><span class="linenos">348</span></a>    <span class="n">instructions_Label</span><span class="o">.</span><span class="n">place</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
-</span><span id="instructons_gui_menu-349"><a href="#instructons_gui_menu-349"><span class="linenos">349</span></a>    <span class="n">purpose_button</span><span class="o">.</span><span class="n">place</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span>
-</span><span id="instructons_gui_menu-350"><a href="#instructons_gui_menu-350"><span class="linenos">350</span></a>    <span class="n">how_to_use_button</span><span class="o">.</span><span class="n">place</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="instructons_gui_menu-338"><a href="#instructons_gui_menu-338"><span class="linenos">338</span></a><span class="k">def</span> <span class="nf">instructons_gui_menu</span><span class="p">():</span>
+</span><span id="instructons_gui_menu-339"><a href="#instructons_gui_menu-339"><span class="linenos">339</span></a>    <span class="sd">&quot;&quot;&quot; The purpose of this function is create an easy intelligble</span>
+</span><span id="instructons_gui_menu-340"><a href="#instructons_gui_menu-340"><span class="linenos">340</span></a><span class="sd">    GUI to give instructions and example to users, the purpose of this program</span>
+</span><span id="instructons_gui_menu-341"><a href="#instructons_gui_menu-341"><span class="linenos">341</span></a><span class="sd">    and how to use it effectively for archiving and retrieving news articles&quot;&quot;&quot;</span>
+</span><span id="instructons_gui_menu-342"><a href="#instructons_gui_menu-342"><span class="linenos">342</span></a>    <span class="k">global</span> <span class="n">instructions_window</span>
+</span><span id="instructons_gui_menu-343"><a href="#instructons_gui_menu-343"><span class="linenos">343</span></a>    <span class="c1"># window varibale to make sure the help gui is infront of base gui</span>
+</span><span id="instructons_gui_menu-344"><a href="#instructons_gui_menu-344"><span class="linenos">344</span></a>    <span class="n">instructions_window</span> <span class="o">=</span> <span class="n">Toplevel</span><span class="p">(</span><span class="n">tk</span><span class="p">)</span>
+</span><span id="instructons_gui_menu-345"><a href="#instructons_gui_menu-345"><span class="linenos">345</span></a>    <span class="c1"># setting the window geometry</span>
+</span><span id="instructons_gui_menu-346"><a href="#instructons_gui_menu-346"><span class="linenos">346</span></a>    <span class="n">instructions_window</span><span class="o">.</span><span class="n">geometry</span><span class="p">(</span><span class="s1">&#39;300x300&#39;</span><span class="p">)</span>
+</span><span id="instructons_gui_menu-347"><a href="#instructons_gui_menu-347"><span class="linenos">347</span></a>    <span class="c1"># creating our label and buttons</span>
+</span><span id="instructons_gui_menu-348"><a href="#instructons_gui_menu-348"><span class="linenos">348</span></a>    <span class="n">instructions_Label</span> <span class="o">=</span>  <span class="n">Label</span><span class="p">(</span><span class="n">instructions_window</span><span class="p">,</span><span class="n">text</span><span class="o">=</span><span class="s1">&#39;What do you need assistance with?&#39;</span><span class="p">)</span>
+</span><span id="instructons_gui_menu-349"><a href="#instructons_gui_menu-349"><span class="linenos">349</span></a>    <span class="n">purpose_button</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span><span class="n">instructions_window</span><span class="p">,</span><span class="n">text</span><span class="o">=</span><span class="s1">&#39;What is the purpose of this program?&#39;</span><span class="p">,</span><span class="n">command</span><span class="o">=</span><span class="n">purpose_message_box</span><span class="p">)</span>
+</span><span id="instructons_gui_menu-350"><a href="#instructons_gui_menu-350"><span class="linenos">350</span></a>    <span class="n">how_to_use_button</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span><span class="n">instructions_window</span><span class="p">,</span><span class="n">text</span><span class="o">=</span><span class="s1">&#39;How do i use this program?&#39;</span><span class="p">,</span><span class="n">command</span><span class="o">=</span><span class="n">how_to_use</span><span class="p">)</span>
+</span><span id="instructons_gui_menu-351"><a href="#instructons_gui_menu-351"><span class="linenos">351</span></a>    <span class="c1"># using place method to position the Labels and Buttons of instructions menu</span>
+</span><span id="instructons_gui_menu-352"><a href="#instructons_gui_menu-352"><span class="linenos">352</span></a>    <span class="n">instructions_Label</span><span class="o">.</span><span class="n">place</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+</span><span id="instructons_gui_menu-353"><a href="#instructons_gui_menu-353"><span class="linenos">353</span></a>    <span class="n">purpose_button</span><span class="o">.</span><span class="n">place</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span>
+</span><span id="instructons_gui_menu-354"><a href="#instructons_gui_menu-354"><span class="linenos">354</span></a>    <span class="n">how_to_use_button</span><span class="o">.</span><span class="n">place</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span>
 </span></pre></div>
 
 
@@ -841,61 +846,40 @@ and how to use it effectively for archiving and retrieving news articles</p>
 
     </div>
     <a class="headerlink" href="#main"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="main-354"><a href="#main-354"><span class="linenos">354</span></a><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-</span><span id="main-355"><a href="#main-355"><span class="linenos">355</span></a>    <span class="c1"># All Function calls</span>
-</span><span id="main-356"><a href="#main-356"><span class="linenos">356</span></a>    <span class="n">options_menu_data</span><span class="p">()</span>
-</span><span id="main-357"><a href="#main-357"><span class="linenos">357</span></a>
-</span><span id="main-358"><a href="#main-358"><span class="linenos">358</span></a>
-</span><span id="main-359"><a href="#main-359"><span class="linenos">359</span></a>    <span class="c1"># defining our buttons</span>
-</span><span id="main-360"><a href="#main-360"><span class="linenos">360</span></a>    <span class="c1"># extract information from news archive</span>
-</span><span id="main-361"><a href="#main-361"><span class="linenos">361</span></a>    <span class="n">extract_html_news_file</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span><span class="n">tk</span><span class="p">,</span><span class="n">text</span><span class="o">=</span><span class="s1">&#39;Extract News Article From Archive&#39;</span><span class="p">,</span><span class="n">command</span><span class="o">=</span> <span class="n">extract_news</span><span class="p">)</span>
-</span><span id="main-362"><a href="#main-362"><span class="linenos">362</span></a>    <span class="c1"># submit confirmation button to finalise decision</span>
-</span><span id="main-363"><a href="#main-363"><span class="linenos">363</span></a>    <span class="n">submit_button</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span><span class="n">tk</span><span class="p">,</span><span class="n">text</span><span class="o">=</span><span class="s1">&#39;Display News Article&#39;</span><span class="p">,</span><span class="n">command</span><span class="o">=</span> <span class="n">display_html</span><span class="p">)</span>
-</span><span id="main-364"><a href="#main-364"><span class="linenos">364</span></a>    <span class="c1"># label to instruct user on what to do</span>
-</span><span id="main-365"><a href="#main-365"><span class="linenos">365</span></a>    <span class="n">our_label</span> <span class="o">=</span> <span class="n">Label</span><span class="p">(</span><span class="n">tk</span><span class="p">,</span><span class="n">text</span><span class="o">=</span><span class="s1">&#39;Which News Document do you wish to view?&#39;</span><span class="p">)</span>
-</span><span id="main-366"><a href="#main-366"><span class="linenos">366</span></a>    <span class="c1"># button for archiving the latest news</span>
-</span><span id="main-367"><a href="#main-367"><span class="linenos">367</span></a>    <span class="n">archive_latest</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span><span class="n">tk</span><span class="p">,</span><span class="n">text</span><span class="o">=</span><span class="s1">&#39;Archive Latest News&#39;</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span> <span class="n">scrape_news_and_archive</span><span class="p">)</span>
-</span><span id="main-368"><a href="#main-368"><span class="linenos">368</span></a>    <span class="c1"># defining a help button</span>
-</span><span id="main-369"><a href="#main-369"><span class="linenos">369</span></a>    <span class="n">help_me</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span><span class="n">tk</span><span class="p">,</span><span class="n">text</span><span class="o">=</span><span class="s1">&#39;Help me!&#39;</span><span class="p">,</span><span class="n">command</span><span class="o">=</span> <span class="n">instructons_gui_menu</span><span class="p">)</span>
-</span><span id="main-370"><a href="#main-370"><span class="linenos">370</span></a>
-</span><span id="main-371"><a href="#main-371"><span class="linenos">371</span></a>    <span class="c1">#placing our buttons on screen</span>
-</span><span id="main-372"><a href="#main-372"><span class="linenos">372</span></a>    <span class="n">extract_html_news_file</span><span class="o">.</span><span class="n">place</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="mi">212</span><span class="p">)</span>
-</span><span id="main-373"><a href="#main-373"><span class="linenos">373</span></a>    <span class="n">selection_box</span><span class="o">.</span><span class="n">place</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span>
-</span><span id="main-374"><a href="#main-374"><span class="linenos">374</span></a>    <span class="n">submit_button</span><span class="o">.</span><span class="n">place</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="mi">240</span><span class="p">)</span>
-</span><span id="main-375"><a href="#main-375"><span class="linenos">375</span></a>    <span class="n">our_label</span><span class="o">.</span><span class="n">place</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
-</span><span id="main-376"><a href="#main-376"><span class="linenos">376</span></a>    <span class="n">help_me</span><span class="o">.</span><span class="n">place</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">178</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="mi">240</span><span class="p">)</span>
-</span><span id="main-377"><a href="#main-377"><span class="linenos">377</span></a>    <span class="n">archive_latest</span><span class="o">.</span><span class="n">place</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="mi">268</span><span class="p">)</span>
-</span><span id="main-378"><a href="#main-378"><span class="linenos">378</span></a>
-</span><span id="main-379"><a href="#main-379"><span class="linenos">379</span></a>    <span class="c1"># main event loop</span>
-</span><span id="main-380"><a href="#main-380"><span class="linenos">380</span></a>    <span class="n">tk</span><span class="o">.</span><span class="n">mainloop</span><span class="p">()</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="main-358"><a href="#main-358"><span class="linenos">358</span></a><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+</span><span id="main-359"><a href="#main-359"><span class="linenos">359</span></a>    <span class="sd">&quot;&quot;&quot; This function serves as the main fubction to call from start up&quot;&quot;&quot;</span>
+</span><span id="main-360"><a href="#main-360"><span class="linenos">360</span></a>    
+</span><span id="main-361"><a href="#main-361"><span class="linenos">361</span></a>    <span class="c1"># All Function calls</span>
+</span><span id="main-362"><a href="#main-362"><span class="linenos">362</span></a>    <span class="n">options_menu_data</span><span class="p">()</span>
+</span><span id="main-363"><a href="#main-363"><span class="linenos">363</span></a>
+</span><span id="main-364"><a href="#main-364"><span class="linenos">364</span></a>
+</span><span id="main-365"><a href="#main-365"><span class="linenos">365</span></a>    <span class="c1"># defining our buttons</span>
+</span><span id="main-366"><a href="#main-366"><span class="linenos">366</span></a>
+</span><span id="main-367"><a href="#main-367"><span class="linenos">367</span></a>    <span class="c1"># extract information from news archive</span>
+</span><span id="main-368"><a href="#main-368"><span class="linenos">368</span></a>    <span class="n">extract_html_news_file</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span><span class="n">tk</span><span class="p">,</span><span class="n">text</span><span class="o">=</span><span class="s1">&#39;Extract News Article From Archive&#39;</span><span class="p">,</span><span class="n">command</span><span class="o">=</span> <span class="n">extract_news</span><span class="p">)</span>
+</span><span id="main-369"><a href="#main-369"><span class="linenos">369</span></a>    <span class="c1"># submit confirmation button to finalise decision</span>
+</span><span id="main-370"><a href="#main-370"><span class="linenos">370</span></a>    <span class="n">submit_button</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span><span class="n">tk</span><span class="p">,</span><span class="n">text</span><span class="o">=</span><span class="s1">&#39;Display News Article&#39;</span><span class="p">,</span><span class="n">command</span><span class="o">=</span> <span class="n">display_html</span><span class="p">)</span>
+</span><span id="main-371"><a href="#main-371"><span class="linenos">371</span></a>    <span class="c1"># label to instruct user on what to do</span>
+</span><span id="main-372"><a href="#main-372"><span class="linenos">372</span></a>    <span class="n">our_label</span> <span class="o">=</span> <span class="n">Label</span><span class="p">(</span><span class="n">tk</span><span class="p">,</span><span class="n">text</span><span class="o">=</span><span class="s1">&#39;Which News Document do you wish to view?&#39;</span><span class="p">)</span>
+</span><span id="main-373"><a href="#main-373"><span class="linenos">373</span></a>    <span class="c1"># button for archiving the latest news</span>
+</span><span id="main-374"><a href="#main-374"><span class="linenos">374</span></a>    <span class="n">archive_latest</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span><span class="n">tk</span><span class="p">,</span><span class="n">text</span><span class="o">=</span><span class="s1">&#39;Archive Latest News&#39;</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span> <span class="n">scrape_news_and_archive</span><span class="p">)</span>
+</span><span id="main-375"><a href="#main-375"><span class="linenos">375</span></a>    <span class="c1"># defining a help button</span>
+</span><span id="main-376"><a href="#main-376"><span class="linenos">376</span></a>    <span class="n">help_me</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span><span class="n">tk</span><span class="p">,</span><span class="n">text</span><span class="o">=</span><span class="s1">&#39;Help me!&#39;</span><span class="p">,</span><span class="n">command</span><span class="o">=</span> <span class="n">instructons_gui_menu</span><span class="p">)</span>
+</span><span id="main-377"><a href="#main-377"><span class="linenos">377</span></a>
+</span><span id="main-378"><a href="#main-378"><span class="linenos">378</span></a>    <span class="c1">#placing our buttons on screen</span>
+</span><span id="main-379"><a href="#main-379"><span class="linenos">379</span></a>    <span class="n">extract_html_news_file</span><span class="o">.</span><span class="n">place</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="mi">212</span><span class="p">)</span>
+</span><span id="main-380"><a href="#main-380"><span class="linenos">380</span></a>    <span class="n">selection_box</span><span class="o">.</span><span class="n">place</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span>
+</span><span id="main-381"><a href="#main-381"><span class="linenos">381</span></a>    <span class="n">submit_button</span><span class="o">.</span><span class="n">place</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="mi">240</span><span class="p">)</span>
+</span><span id="main-382"><a href="#main-382"><span class="linenos">382</span></a>    <span class="n">our_label</span><span class="o">.</span><span class="n">place</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+</span><span id="main-383"><a href="#main-383"><span class="linenos">383</span></a>    <span class="n">help_me</span><span class="o">.</span><span class="n">place</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">178</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="mi">240</span><span class="p">)</span>
+</span><span id="main-384"><a href="#main-384"><span class="linenos">384</span></a>    <span class="n">archive_latest</span><span class="o">.</span><span class="n">place</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="mi">268</span><span class="p">)</span>
+</span><span id="main-385"><a href="#main-385"><span class="linenos">385</span></a>
+</span><span id="main-386"><a href="#main-386"><span class="linenos">386</span></a>    <span class="c1"># main event loop</span>
+</span><span id="main-387"><a href="#main-387"><span class="linenos">387</span></a>    <span class="n">tk</span><span class="o">.</span><span class="n">mainloop</span><span class="p">()</span>
 </span></pre></div>
 
 
-    
-
-                </section>
-                <section id="refresh_listbox">
-                            <input id="refresh_listbox-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
-<div class="attr function">
-            
-        <span class="def">def</span>
-        <span class="name">refresh_listbox</span><span class="signature pdoc-code condensed">()</span>
-
-                <label class="view-source-button" for="refresh_listbox-view-source"><span>View Source</span></label>
-
-    </div>
-    <a class="headerlink" href="#refresh_listbox"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="refresh_listbox-383"><a href="#refresh_listbox-383"><span class="linenos">383</span></a><span class="k">def</span> <span class="nf">refresh_listbox</span><span class="p">():</span>
-</span><span id="refresh_listbox-384"><a href="#refresh_listbox-384"><span class="linenos">384</span></a>    <span class="sd">&quot;&quot;&quot;Purpose of this function is to reload the GUI interface</span>
-</span><span id="refresh_listbox-385"><a href="#refresh_listbox-385"><span class="linenos">385</span></a><span class="sd">    where neccesary, example would be to update the InternetArchive</span>
-</span><span id="refresh_listbox-386"><a href="#refresh_listbox-386"><span class="linenos">386</span></a><span class="sd">    and list box.&quot;&quot;&quot;</span>
-</span><span id="refresh_listbox-387"><a href="#refresh_listbox-387"><span class="linenos">387</span></a>    <span class="n">selection_box</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
-</span></pre></div>
-
-
-            <div class="docstring"><p>Purpose of this function is to reload the GUI interface
-where neccesary, example would be to update the InternetArchive
-and list box.</p>
+            <div class="docstring"><p>This function serves as the main fubction to call from start up</p>
 </div>
 
 

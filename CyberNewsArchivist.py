@@ -321,11 +321,15 @@ def options_menu_data():
 
 # !!!START of Instruction menu functions!!!
 def how_to_use():
+    """Provides user with a message box and instructions on how to use the program"""
+
     messagebox.showinfo(instructions_window,message='1. Firstly you must select a news article from our menu\n\
     2. You must hit extract from news archive button which is located below our file selection box\n\
     3. Lastly you then hit Display news article and you will be directed to an offline generated document containing the news.')
 
 def purpose_message_box():
+    """ Provides user with a message box and short message explaining the purpose of the program"""
+    
     messagebox.showinfo(instructions_window,message='The purpose of this program is to to safely and legally archive news articles\
     that have been posted online. In addition, allowing users to retrieve newly generated webpages from specific dates and view the events\
     of the day')
@@ -351,11 +355,14 @@ def instructons_gui_menu():
 
 # !!!End of Instruction Menu Functions!!!
 def main():
+    """ This function serves as the main fubction to call from start up"""
+    
     # All Function calls
     options_menu_data()
 
 
     # defining our buttons
+
     # extract information from news archive
     extract_html_news_file = Button(tk,text='Extract News Article From Archive',command= extract_news)
     # submit confirmation button to finalise decision
@@ -377,12 +384,5 @@ def main():
 
     # main event loop
     tk.mainloop()
-
-#refresh interface
-def refresh_listbox():
-    """Purpose of this function is to reload the GUI interface
-    where neccesary, example would be to update the InternetArchive
-    and list box."""
-    selection_box.update()
 
 main()
