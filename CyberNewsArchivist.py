@@ -137,8 +137,6 @@ def extract_news():
     """ This function intends to extract the correct news information
     from existing news articles that have been archived and display them approriatly
     in a HTML document."""
-    # making variables global
-    #global publish_and_download_date,headings,picture_refs,synopsis
 
     # process selection as an integer not a tuple
     users_selection = int(selection_box.curselection()[0]) 
