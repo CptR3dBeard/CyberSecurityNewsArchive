@@ -250,7 +250,7 @@ h1 {{
     <body>
     <p> These news articles were published and archived on the {str(date)} </p> 
     <h1>1. {titles[0]}</h1>
-    <p> <img style="border:10px solid black;" src =https://thehackernews.com/new-images/img/b/R29vZ2xl{pictures[0]}><br><br>{descriptions[0]}....</p>
+    <p> <img style="border:10px solid black;" src =https://thehackernews.com/new-images/img/b/R29vZ2xl{pictures[0]} id='test' onerror='error_loading_image()'><br><br>{descriptions[0]}....</p>
 
     <h1>2. {titles[1]}</h1>
     <p> <img style="border:10px solid black;" src =https://thehackernews.com/new-images/img/b/R29vZ2xl{pictures[1]}><br><br>{descriptions[1]}....</p>
@@ -268,6 +268,13 @@ h1 {{
     <p> <img style="border:10px solid black;" src =https://thehackernews.com/new-images/img/b/R29vZ2xl{pictures[5]}><br><br>{descriptions[5]}....</p>
 
     </body>
+
+    <script>
+    function error_loading_image(){{
+      document.getElementById('test').innerHTML = 'The Image Could Not Be Loaded';
+    }}
+    </script>
+    
 </div>
 
     """
@@ -385,4 +392,5 @@ def main():
     # main event loop
     tk.mainloop()
 
+# activate main function on start up
 main()
