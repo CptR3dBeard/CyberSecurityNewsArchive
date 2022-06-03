@@ -123,13 +123,13 @@ label.pack()
 # required variables
 internet_archive = 'InternetArchive'
 
-
+ 
 # display the html file
 def display_html():
     """This function will open the HTML document after
     news has been written extracted and written to it"""
     # open webpage news document
-    webopen(f"file://' + '/Users/lane/Documents/GitHub/Portfolio2ITD104/Webarchivepage/main_page.html")
+    webopen(f"file://' + '/Users/lane/Documents/GitHub/Portfolio2ITD104/GeneratedWebPage/main_page.html")
     
 
 # extract news from web archive html docs
@@ -145,7 +145,7 @@ def extract_news():
 
 
     # open specified file and search for key tags
-    with open(f'InternetArchive/{file_name}' , mode= 'r') as root:
+    with open(f'{internet_archive}/{file_name}' , mode= 'r') as root:
         # saving the archive and publish dates of the file
         publish_and_download_date = findall('(.*?).html', file_name)
 
@@ -280,7 +280,7 @@ h1 {{
     """
    
     # create the generated news document and write to it using html template
-    open('Webarchivepage/CyberSecurityEventsPage.html',mode='w').write(html_template2)
+    open('GeneratedWebPage/CyberSecurityEventsPage.html',mode='w').write(html_template2)
 
     
 
@@ -313,12 +313,11 @@ def options_menu_data():
     # empty options list
     options = []
     # check for html files within the InternetArchive
-    for files in listdir('InternetArchive'):
+    for files in listdir(f'{internet_archive}'):
         if files.endswith('.html'):
             # save html file names to options list
             options.append(files)
-    print(options)
-
+            
     # creating our list box
     selection_box = Listbox(tk)
     # checking file options
