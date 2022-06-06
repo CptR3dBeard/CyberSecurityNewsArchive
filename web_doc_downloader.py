@@ -1,35 +1,4 @@
-#-----------------------------------------------------------
-#
-# Web Document Downloader
-#
-# This program contains a function to download
-# and save the source code of a web document as a local
-# file. Given a URL, it downloads the corresponding web
-# document as a Unicode character string and saves it to
-# a file.  The function also returns the downloaded
-# document to the caller as a Python character string.
-# NB: The function assumes the source file is encoded as
-# UTF-8, which is the case for most HTML/XML documents
-# on the web.
-#
-# Q: Why not just access the web page's source code via
-# your favourite web browser (Firefox, Google Chrome, etc)?
-#
-# A: Because when a Python script requests a web document
-# from an online server it may not receive the same file
-# you see in your browser!  Many web servers generate
-# different HTML/XML code for different clients.  Even
-# worse, some web servers may refuse to send documents to
-# programs other than standard web browsers.  If a Python
-# script requests a web document they may instead respond
-# with an "access denied" document!  
-#
-# WARNING: This function will silently overwrite the
-# target file if it already exists!
-#
 
-#-----------------------------------------------------------
-#
 # A function to download and save a web document. The function
 # tries to produce a meaningful error message if the attempt fails.
 # NB: You should change the default filename extension to "xhtml" 
@@ -78,10 +47,3 @@ def download(url = 'http://www.wikipedia.org/',
 
     # Return the downloaded document to the caller
     return web_page_contents
-
-
-#-----------------------------------------------------------
-#
-# A main program to call the function.  If you want to download a
-# specific web document, add its URL as the function's argument.
-#
